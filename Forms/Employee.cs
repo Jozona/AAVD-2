@@ -40,6 +40,9 @@ namespace AAVD.Forms
             month_reciboPDF.CustomFormat = "MM";
             month_reciboPDF.Format = DateTimePickerFormat.Custom;
 
+            dtpConsumoH_year.CustomFormat = "yyyy";
+            dtpConsumoH_year.Format = DateTimePickerFormat.Custom;
+
             edc_nacimiento.CustomFormat = "yyyy-MM-dd";
             edc_nacimiento.Format = DateTimePickerFormat.Custom;
             c_nacimiento.CustomFormat = "yyyy-MM-dd";
@@ -75,6 +78,8 @@ namespace AAVD.Forms
                 MessageBox.Show("Ningun espacio puede estar vacio");
                 return;
             }
+
+
             bool validaruser = true;
             bool validarpassword = true;
             bool validarnombre = true;
@@ -262,12 +267,12 @@ namespace AAVD.Forms
             contratos = DatabaseManagement.getInstance().GetContratos();
             foreach (var contrato in contratos)
             {
-                if ((contrato.num_medidor.ToString()).Equals(c_noMedidor.Text))
+                if ((contrato.num_medidor.ToString()).Equals(nud_Medidor.Value.ToString()))
                 {
                     MessageBox.Show("Ese numero de medidor ya esta en uso");
                     return;
                 }
-                if ((contrato.num_servicio.ToString()).Equals(c_noServicio.Text))
+                if ((contrato.num_servicio.ToString()).Equals(nud_Servicio.Value.ToString()))
                 {
                     MessageBox.Show("Ese numero de servicio ya esta en uso");
                     return;
@@ -278,7 +283,7 @@ namespace AAVD.Forms
             listaNumClientes = DatabaseManagement.getInstance().GetClients();
             foreach (var cliente in listaNumClientes)
             {
-                if (cliente.num_cliente.ToString().Equals(c_numCliente.Text))
+                if (cliente.num_cliente.ToString().Equals(nud_Cliente.Value.ToString()))
                 {
                     MessageBox.Show("Ese numero de cliente ya esta en uso");
                     return;
@@ -301,7 +306,7 @@ namespace AAVD.Forms
                 foreach (var data in user)
                 {
                     new_user_id = data.user_id;
-                    database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id, c_noMedidor.Text, c_noServicio.Text, c_numCliente.Text);
+                    database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id, nud_Medidor.Value.ToString(), nud_Servicio.Value.ToString(), nud_Cliente.Value.ToString());
                 }
                 MessageBox.Show("Cliente registrado con exito.");
                 updateDataGrid();
@@ -1145,26 +1150,42 @@ namespace AAVD.Forms
         //Asignar un contrato
         private void button9_Click(object sender, EventArgs e)
         {
-            if (contrato_numCLiente.Text.Equals("") || contrato_Tipo.Text.Equals("") || contrato_numMedidor.Text.Equals("") || contrato_numServicio.Text.Equals("")) {
+            if (contrato_Tipo.Text.Equals("")) {
                 MessageBox.Show("Ningun espacio puede estar vacio");
                 return;
             }
+
+            if (nud_ClienteNC.Value <= 0) {
+                MessageBox.Show("Numero de cliente invalido");
+                return;
+            }
+            if (nud_MedidorNC.Value <= 0)
+            {
+                MessageBox.Show("Numero de medidor invalido");
+                return;
+            }
+            if (nud_ServicioNC.Value <= 0)
+            {
+                MessageBox.Show("Numero de servicio invalido");
+                return;
+            }
+
             List <Contratos> contratos = new List<Contratos>();
             contratos = DatabaseManagement.getInstance().GetContratos();
             foreach (var contrato in contratos)
             {
-                if ((contrato.num_medidor.ToString()).Equals(contrato_numMedidor.Text))
+                if ((contrato.num_medidor.ToString()).Equals(nud_MedidorNC.Value.ToString()))
                 {
                     MessageBox.Show("Ese numero de medidor ya esta en uso");
                     return;
                 }
-                if ((contrato.num_servicio.ToString()).Equals(contrato_numServicio.Text))
+                if ((contrato.num_servicio.ToString()).Equals(nud_ServicioNC.Value.ToString()))
                 {
                     MessageBox.Show("Ese numero de servicio ya esta en uso");
                     return;
                 }
             }
-            DatabaseManagement.getInstance().updateContratos(contrato_numCLiente.Text, contrato_Tipo.Text, contrato_numMedidor.Text, contrato_numServicio.Text);
+            DatabaseManagement.getInstance().updateContratos(nud_ClienteNC.Value.ToString(), contrato_Tipo.Text, nud_MedidorNC.Value.ToString(), nud_ServicioNC.Value.ToString());
             MessageBox.Show("Nuevo contrato asociado a el cliente.");
         }
 
@@ -1204,6 +1225,29 @@ namespace AAVD.Forms
         private void button5_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        //Se cambia el a;o en el reporte de consumo historico
+        private void dtpConsumoH_year_ValueChanged(object sender, EventArgs e)
+        {
+            List<Consumos> consumos = new List<Consumos>();
+            consumos = DatabaseManagement.getInstance().getConsumos();
+
+            List<Consumos> csmDTG = new List<Consumos>();
+            foreach (var consumo in consumos)
+            {
+                if (dtpConsumoH_year.Text.Equals(consumo.year)){
+                    Consumos consumoDTG = new Consumos();
+                    consumoDTG.num_medidor = consumo.num_medidor;
+                    consumoDTG.consumo = consumo.consumo;
+                    consumoDTG.month = consumo.month;
+                    consumoDTG.year = consumo.year;
+                    consumoDTG.kw_basico = 100;
+                    csmDTG.Add(consumo);
+                }
+
+            }
+            consumoHistorico_EMPGTD.DataSource = csmDTG;
         }
     }
 }

@@ -37,7 +37,6 @@ namespace AAVD.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.c_numCliente = new System.Windows.Forms.TextBox();
             this.label66 = new System.Windows.Forms.Label();
             this.groupbox = new System.Windows.Forms.GroupBox();
             this.c_respuesta = new System.Windows.Forms.TextBox();
@@ -51,8 +50,6 @@ namespace AAVD.Forms
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.c_noServicio = new System.Windows.Forms.TextBox();
-            this.c_noMedidor = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.c_contratoTipo = new System.Windows.Forms.ComboBox();
@@ -133,13 +130,10 @@ namespace AAVD.Forms
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.contrato_numServicio = new System.Windows.Forms.TextBox();
-            this.contrato_numMedidor = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.contrato_Tipo = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.contrato_numCLiente = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -160,10 +154,6 @@ namespace AAVD.Forms
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.Tarifas = new System.Windows.Forms.TabPage();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.eb_tipoTarifa = new System.Windows.Forms.ComboBox();
@@ -177,12 +167,20 @@ namespace AAVD.Forms
             this.label47 = new System.Windows.Forms.Label();
             this.eb_TarifaBasica = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.label59 = new System.Windows.Forms.Label();
-            this.carga_consumos = new System.Windows.Forms.Button();
-            this.label51 = new System.Windows.Forms.Label();
-            this.csv_tarifas = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.consumo_month = new System.Windows.Forms.DateTimePicker();
+            this.consumo_year = new System.Windows.Forms.DateTimePicker();
+            this.btn_consumo = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.ConsumosDTG_WN = new System.Windows.Forms.DataGridView();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.consumo_kw = new System.Windows.Forms.TextBox();
+            this.consumo_medidor = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.eb_user_recibo = new System.Windows.Forms.TextBox();
@@ -219,20 +217,16 @@ namespace AAVD.Forms
             this.button7 = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.consumo_month = new System.Windows.Forms.DateTimePicker();
-            this.consumo_year = new System.Windows.Forms.DateTimePicker();
-            this.btn_consumo = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.ConsumosDTG_WN = new System.Windows.Forms.DataGridView();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.consumo_kw = new System.Windows.Forms.TextBox();
-            this.consumo_medidor = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.label59 = new System.Windows.Forms.Label();
+            this.carga_consumos = new System.Windows.Forms.Button();
+            this.label51 = new System.Windows.Forms.Label();
+            this.csv_tarifas = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LAST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -245,6 +239,20 @@ namespace AAVD.Forms
             this.COLONY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONTRACT_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nud_Medidor = new System.Windows.Forms.NumericUpDown();
+            this.nud_Servicio = new System.Windows.Forms.NumericUpDown();
+            this.nud_Cliente = new System.Windows.Forms.NumericUpDown();
+            this.nud_ClienteNC = new System.Windows.Forms.NumericUpDown();
+            this.nud_MedidorNC = new System.Windows.Forms.NumericUpDown();
+            this.nud_ServicioNC = new System.Windows.Forms.NumericUpDown();
+            this.consumoHistorico_EMPGTD = new System.Windows.Forms.DataGridView();
+            this.label79 = new System.Windows.Forms.Label();
+            this.nudConsumoH_medidor = new System.Windows.Forms.NumericUpDown();
+            this.nudConsumoH_servcio = new System.Windows.Forms.NumericUpDown();
+            this.dtpConsumoH_year = new System.Windows.Forms.DateTimePicker();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -273,20 +281,30 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Tarifas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TarifasFTG_WN)).BeginInit();
-            this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.tabPage12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsumosDTG_WN)).BeginInit();
+            this.tabPage13.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConsumosDTG_WN)).BeginInit();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Medidor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Servicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ClienteNC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_MedidorNC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ServicioNC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consumoHistorico_EMPGTD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_medidor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_servcio)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -382,7 +400,7 @@ namespace AAVD.Forms
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.c_numCliente);
+            this.groupBox10.Controls.Add(this.nud_Cliente);
             this.groupBox10.Controls.Add(this.label66);
             this.groupBox10.Location = new System.Drawing.Point(119, 322);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -392,14 +410,6 @@ namespace AAVD.Forms
             this.groupBox10.TabIndex = 17;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Identificador";
-            // 
-            // c_numCliente
-            // 
-            this.c_numCliente.Location = new System.Drawing.Point(167, 41);
-            this.c_numCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.c_numCliente.Name = "c_numCliente";
-            this.c_numCliente.Size = new System.Drawing.Size(152, 22);
-            this.c_numCliente.TabIndex = 1;
             // 
             // label66
             // 
@@ -527,8 +537,8 @@ namespace AAVD.Forms
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.c_noServicio);
-            this.groupBox3.Controls.Add(this.c_noMedidor);
+            this.groupBox3.Controls.Add(this.nud_Servicio);
+            this.groupBox3.Controls.Add(this.nud_Medidor);
             this.groupBox3.Controls.Add(this.label65);
             this.groupBox3.Controls.Add(this.label64);
             this.groupBox3.Controls.Add(this.c_contratoTipo);
@@ -541,22 +551,6 @@ namespace AAVD.Forms
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de contrato";
-            // 
-            // c_noServicio
-            // 
-            this.c_noServicio.Location = new System.Drawing.Point(152, 94);
-            this.c_noServicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.c_noServicio.Name = "c_noServicio";
-            this.c_noServicio.Size = new System.Drawing.Size(121, 22);
-            this.c_noServicio.TabIndex = 5;
-            // 
-            // c_noMedidor
-            // 
-            this.c_noMedidor.Location = new System.Drawing.Point(152, 62);
-            this.c_noMedidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.c_noMedidor.Name = "c_noMedidor";
-            this.c_noMedidor.Size = new System.Drawing.Size(121, 22);
-            this.c_noMedidor.TabIndex = 4;
             // 
             // label65
             // 
@@ -1376,13 +1370,13 @@ namespace AAVD.Forms
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.contrato_numServicio);
-            this.groupBox5.Controls.Add(this.contrato_numMedidor);
+            this.groupBox5.Controls.Add(this.nud_ClienteNC);
+            this.groupBox5.Controls.Add(this.nud_ServicioNC);
+            this.groupBox5.Controls.Add(this.nud_MedidorNC);
             this.groupBox5.Controls.Add(this.label68);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.contrato_Tipo);
             this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.contrato_numCLiente);
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Location = new System.Drawing.Point(41, 42);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1392,22 +1386,6 @@ namespace AAVD.Forms
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Datos de contrato";
-            // 
-            // contrato_numServicio
-            // 
-            this.contrato_numServicio.Location = new System.Drawing.Point(181, 154);
-            this.contrato_numServicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.contrato_numServicio.Name = "contrato_numServicio";
-            this.contrato_numServicio.Size = new System.Drawing.Size(149, 22);
-            this.contrato_numServicio.TabIndex = 13;
-            // 
-            // contrato_numMedidor
-            // 
-            this.contrato_numMedidor.Location = new System.Drawing.Point(181, 113);
-            this.contrato_numMedidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.contrato_numMedidor.Name = "contrato_numMedidor";
-            this.contrato_numMedidor.Size = new System.Drawing.Size(149, 22);
-            this.contrato_numMedidor.TabIndex = 12;
             // 
             // label68
             // 
@@ -1447,14 +1425,6 @@ namespace AAVD.Forms
             this.label19.Size = new System.Drawing.Size(123, 17);
             this.label19.TabIndex = 1;
             this.label19.Text = "Numero de cliente";
-            // 
-            // contrato_numCLiente
-            // 
-            this.contrato_numCLiente.Location = new System.Drawing.Point(181, 34);
-            this.contrato_numCLiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.contrato_numCLiente.Name = "contrato_numCLiente";
-            this.contrato_numCLiente.Size = new System.Drawing.Size(149, 22);
-            this.contrato_numCLiente.TabIndex = 4;
             // 
             // label18
             // 
@@ -1672,51 +1642,6 @@ namespace AAVD.Forms
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.pictureBox3);
-            this.tabPage9.Controls.Add(this.button5);
-            this.tabPage9.Controls.Add(this.label3);
-            this.tabPage9.Location = new System.Drawing.Point(4, 25);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Size = new System.Drawing.Size(951, 621);
-            this.tabPage9.TabIndex = 6;
-            this.tabPage9.Text = "Opciones";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox3.Location = new System.Drawing.Point(259, 31);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(265, 122);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(349, 235);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Salir";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(329, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Salir de la sesion ";
-            // 
             // Tarifas
             // 
             this.Tarifas.Controls.Add(this.pictureBox6);
@@ -1855,72 +1780,160 @@ namespace AAVD.Forms
             this.label46.TabIndex = 0;
             this.label46.Text = "Agregar tarifa";
             // 
-            // tabPage10
+            // tabPage12
             // 
-            this.tabPage10.Controls.Add(this.label59);
-            this.tabPage10.Controls.Add(this.carga_consumos);
-            this.tabPage10.Controls.Add(this.label51);
-            this.tabPage10.Controls.Add(this.csv_tarifas);
-            this.tabPage10.Controls.Add(this.pictureBox5);
-            this.tabPage10.Location = new System.Drawing.Point(4, 25);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage10.Size = new System.Drawing.Size(951, 621);
-            this.tabPage10.TabIndex = 8;
-            this.tabPage10.Text = "Carga masiva";
-            this.tabPage10.UseVisualStyleBackColor = true;
+            this.tabPage12.Controls.Add(this.consumo_month);
+            this.tabPage12.Controls.Add(this.consumo_year);
+            this.tabPage12.Controls.Add(this.btn_consumo);
+            this.tabPage12.Controls.Add(this.pictureBox4);
+            this.tabPage12.Controls.Add(this.ConsumosDTG_WN);
+            this.tabPage12.Controls.Add(this.label58);
+            this.tabPage12.Controls.Add(this.label57);
+            this.tabPage12.Controls.Add(this.consumo_kw);
+            this.tabPage12.Controls.Add(this.consumo_medidor);
+            this.tabPage12.Controls.Add(this.label56);
+            this.tabPage12.Controls.Add(this.label55);
+            this.tabPage12.Controls.Add(this.label54);
+            this.tabPage12.Location = new System.Drawing.Point(4, 25);
+            this.tabPage12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage12.Size = new System.Drawing.Size(951, 621);
+            this.tabPage12.TabIndex = 10;
+            this.tabPage12.Text = "Consumos";
+            this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // label59
+            // consumo_month
             // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(389, 270);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(182, 17);
-            this.label59.TabIndex = 5;
-            this.label59.Text = "Carga masiva de consumos";
+            this.consumo_month.Location = new System.Drawing.Point(403, 187);
+            this.consumo_month.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.consumo_month.Name = "consumo_month";
+            this.consumo_month.Size = new System.Drawing.Size(100, 22);
+            this.consumo_month.TabIndex = 13;
             // 
-            // carga_consumos
+            // consumo_year
             // 
-            this.carga_consumos.Location = new System.Drawing.Point(419, 311);
-            this.carga_consumos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.carga_consumos.Name = "carga_consumos";
-            this.carga_consumos.Size = new System.Drawing.Size(97, 37);
-            this.carga_consumos.TabIndex = 4;
-            this.carga_consumos.Text = "Cargar CSV";
-            this.carga_consumos.UseVisualStyleBackColor = true;
-            this.carga_consumos.Click += new System.EventHandler(this.carga_consumos_Click);
+            this.consumo_year.Location = new System.Drawing.Point(168, 187);
+            this.consumo_year.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.consumo_year.Name = "consumo_year";
+            this.consumo_year.Size = new System.Drawing.Size(100, 22);
+            this.consumo_year.TabIndex = 12;
             // 
-            // label51
+            // btn_consumo
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(389, 114);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(157, 17);
-            this.label51.TabIndex = 1;
-            this.label51.Text = "Carga masiva de tarifas";
+            this.btn_consumo.Location = new System.Drawing.Point(251, 254);
+            this.btn_consumo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_consumo.Name = "btn_consumo";
+            this.btn_consumo.Size = new System.Drawing.Size(75, 23);
+            this.btn_consumo.TabIndex = 11;
+            this.btn_consumo.Text = "Ok";
+            this.btn_consumo.UseVisualStyleBackColor = true;
+            this.btn_consumo.Click += new System.EventHandler(this.btn_consumo_Click);
             // 
-            // csv_tarifas
+            // pictureBox4
             // 
-            this.csv_tarifas.Location = new System.Drawing.Point(419, 156);
-            this.csv_tarifas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.csv_tarifas.Name = "csv_tarifas";
-            this.csv_tarifas.Size = new System.Drawing.Size(97, 37);
-            this.csv_tarifas.TabIndex = 0;
-            this.csv_tarifas.Text = "Cargar CSV";
-            this.csv_tarifas.UseVisualStyleBackColor = true;
-            this.csv_tarifas.Click += new System.EventHandler(this.csv_tarifas_Click);
+            this.pictureBox4.Image = global::AAVD.Properties.Resources.índice__3_;
+            this.pictureBox4.Location = new System.Drawing.Point(159, 334);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(265, 122);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
             // 
-            // pictureBox5
+            // ConsumosDTG_WN
             // 
-            this.pictureBox5.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox5.Location = new System.Drawing.Point(336, 410);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(265, 122);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.ConsumosDTG_WN.AllowUserToAddRows = false;
+            this.ConsumosDTG_WN.AllowUserToDeleteRows = false;
+            this.ConsumosDTG_WN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ConsumosDTG_WN.Location = new System.Drawing.Point(537, 44);
+            this.ConsumosDTG_WN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ConsumosDTG_WN.Name = "ConsumosDTG_WN";
+            this.ConsumosDTG_WN.ReadOnly = true;
+            this.ConsumosDTG_WN.RowHeadersWidth = 51;
+            this.ConsumosDTG_WN.RowTemplate.Height = 24;
+            this.ConsumosDTG_WN.Size = new System.Drawing.Size(408, 542);
+            this.ConsumosDTG_WN.TabIndex = 9;
+            this.ConsumosDTG_WN.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsumosDTG_WN_CellContentClick);
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(323, 187);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(34, 17);
+            this.label58.TabIndex = 8;
+            this.label58.Text = "Mes";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(75, 187);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(33, 17);
+            this.label57.TabIndex = 7;
+            this.label57.Text = "Año";
+            // 
+            // consumo_kw
+            // 
+            this.consumo_kw.Location = new System.Drawing.Point(403, 124);
+            this.consumo_kw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.consumo_kw.Name = "consumo_kw";
+            this.consumo_kw.Size = new System.Drawing.Size(100, 22);
+            this.consumo_kw.TabIndex = 6;
+            // 
+            // consumo_medidor
+            // 
+            this.consumo_medidor.Location = new System.Drawing.Point(168, 124);
+            this.consumo_medidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.consumo_medidor.Name = "consumo_medidor";
+            this.consumo_medidor.Size = new System.Drawing.Size(100, 22);
+            this.consumo_medidor.TabIndex = 5;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(305, 123);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(71, 17);
+            this.label56.TabIndex = 2;
+            this.label56.Text = "Consumo:";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(41, 123);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(105, 17);
+            this.label55.TabIndex = 1;
+            this.label55.Text = "No. de medidor";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(196, 44);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(171, 17);
+            this.label54.TabIndex = 0;
+            this.label54.Text = "Declaracion de consumos";
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Controls.Add(this.label82);
+            this.tabPage13.Controls.Add(this.label81);
+            this.tabPage13.Controls.Add(this.label80);
+            this.tabPage13.Controls.Add(this.dtpConsumoH_year);
+            this.tabPage13.Controls.Add(this.nudConsumoH_servcio);
+            this.tabPage13.Controls.Add(this.nudConsumoH_medidor);
+            this.tabPage13.Controls.Add(this.label79);
+            this.tabPage13.Controls.Add(this.consumoHistorico_EMPGTD);
+            this.tabPage13.Location = new System.Drawing.Point(4, 25);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(951, 621);
+            this.tabPage13.TabIndex = 11;
+            this.tabPage13.Text = "Reporte historico";
+            this.tabPage13.UseVisualStyleBackColor = true;
             // 
             // tabPage11
             // 
@@ -2287,152 +2300,117 @@ namespace AAVD.Forms
             this.label52.TabIndex = 1;
             this.label52.Text = "Generar recibo en PDF";
             // 
-            // tabPage12
+            // tabPage10
             // 
-            this.tabPage12.Controls.Add(this.consumo_month);
-            this.tabPage12.Controls.Add(this.consumo_year);
-            this.tabPage12.Controls.Add(this.btn_consumo);
-            this.tabPage12.Controls.Add(this.pictureBox4);
-            this.tabPage12.Controls.Add(this.ConsumosDTG_WN);
-            this.tabPage12.Controls.Add(this.label58);
-            this.tabPage12.Controls.Add(this.label57);
-            this.tabPage12.Controls.Add(this.consumo_kw);
-            this.tabPage12.Controls.Add(this.consumo_medidor);
-            this.tabPage12.Controls.Add(this.label56);
-            this.tabPage12.Controls.Add(this.label55);
-            this.tabPage12.Controls.Add(this.label54);
-            this.tabPage12.Location = new System.Drawing.Point(4, 25);
-            this.tabPage12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage12.Size = new System.Drawing.Size(951, 621);
-            this.tabPage12.TabIndex = 10;
-            this.tabPage12.Text = "Consumos";
-            this.tabPage12.UseVisualStyleBackColor = true;
+            this.tabPage10.Controls.Add(this.label59);
+            this.tabPage10.Controls.Add(this.carga_consumos);
+            this.tabPage10.Controls.Add(this.label51);
+            this.tabPage10.Controls.Add(this.csv_tarifas);
+            this.tabPage10.Controls.Add(this.pictureBox5);
+            this.tabPage10.Location = new System.Drawing.Point(4, 25);
+            this.tabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage10.Size = new System.Drawing.Size(951, 621);
+            this.tabPage10.TabIndex = 8;
+            this.tabPage10.Text = "Carga masiva";
+            this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // consumo_month
+            // label59
             // 
-            this.consumo_month.Location = new System.Drawing.Point(403, 187);
-            this.consumo_month.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.consumo_month.Name = "consumo_month";
-            this.consumo_month.Size = new System.Drawing.Size(100, 22);
-            this.consumo_month.TabIndex = 13;
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(389, 270);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(182, 17);
+            this.label59.TabIndex = 5;
+            this.label59.Text = "Carga masiva de consumos";
             // 
-            // consumo_year
+            // carga_consumos
             // 
-            this.consumo_year.Location = new System.Drawing.Point(168, 187);
-            this.consumo_year.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.consumo_year.Name = "consumo_year";
-            this.consumo_year.Size = new System.Drawing.Size(100, 22);
-            this.consumo_year.TabIndex = 12;
+            this.carga_consumos.Location = new System.Drawing.Point(419, 311);
+            this.carga_consumos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.carga_consumos.Name = "carga_consumos";
+            this.carga_consumos.Size = new System.Drawing.Size(97, 37);
+            this.carga_consumos.TabIndex = 4;
+            this.carga_consumos.Text = "Cargar CSV";
+            this.carga_consumos.UseVisualStyleBackColor = true;
+            this.carga_consumos.Click += new System.EventHandler(this.carga_consumos_Click);
             // 
-            // btn_consumo
+            // label51
             // 
-            this.btn_consumo.Location = new System.Drawing.Point(251, 254);
-            this.btn_consumo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_consumo.Name = "btn_consumo";
-            this.btn_consumo.Size = new System.Drawing.Size(75, 23);
-            this.btn_consumo.TabIndex = 11;
-            this.btn_consumo.Text = "Ok";
-            this.btn_consumo.UseVisualStyleBackColor = true;
-            this.btn_consumo.Click += new System.EventHandler(this.btn_consumo_Click);
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(389, 114);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(157, 17);
+            this.label51.TabIndex = 1;
+            this.label51.Text = "Carga masiva de tarifas";
             // 
-            // pictureBox4
+            // csv_tarifas
             // 
-            this.pictureBox4.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox4.Location = new System.Drawing.Point(159, 334);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(265, 122);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.csv_tarifas.Location = new System.Drawing.Point(419, 156);
+            this.csv_tarifas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.csv_tarifas.Name = "csv_tarifas";
+            this.csv_tarifas.Size = new System.Drawing.Size(97, 37);
+            this.csv_tarifas.TabIndex = 0;
+            this.csv_tarifas.Text = "Cargar CSV";
+            this.csv_tarifas.UseVisualStyleBackColor = true;
+            this.csv_tarifas.Click += new System.EventHandler(this.csv_tarifas_Click);
             // 
-            // ConsumosDTG_WN
+            // pictureBox5
             // 
-            this.ConsumosDTG_WN.AllowUserToAddRows = false;
-            this.ConsumosDTG_WN.AllowUserToDeleteRows = false;
-            this.ConsumosDTG_WN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsumosDTG_WN.Location = new System.Drawing.Point(537, 44);
-            this.ConsumosDTG_WN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ConsumosDTG_WN.Name = "ConsumosDTG_WN";
-            this.ConsumosDTG_WN.ReadOnly = true;
-            this.ConsumosDTG_WN.RowHeadersWidth = 51;
-            this.ConsumosDTG_WN.RowTemplate.Height = 24;
-            this.ConsumosDTG_WN.Size = new System.Drawing.Size(408, 542);
-            this.ConsumosDTG_WN.TabIndex = 9;
-            this.ConsumosDTG_WN.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsumosDTG_WN_CellContentClick);
+            this.pictureBox5.Image = global::AAVD.Properties.Resources.índice__3_;
+            this.pictureBox5.Location = new System.Drawing.Point(336, 410);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(265, 122);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
             // 
-            // label58
+            // tabPage9
             // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(323, 187);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(34, 17);
-            this.label58.TabIndex = 8;
-            this.label58.Text = "Mes";
+            this.tabPage9.Controls.Add(this.pictureBox3);
+            this.tabPage9.Controls.Add(this.button5);
+            this.tabPage9.Controls.Add(this.label3);
+            this.tabPage9.Location = new System.Drawing.Point(4, 25);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage9.Size = new System.Drawing.Size(951, 621);
+            this.tabPage9.TabIndex = 6;
+            this.tabPage9.Text = "Opciones";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // label57
+            // pictureBox3
             // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(75, 187);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(33, 17);
-            this.label57.TabIndex = 7;
-            this.label57.Text = "Año";
+            this.pictureBox3.Image = global::AAVD.Properties.Resources.índice__3_;
+            this.pictureBox3.Location = new System.Drawing.Point(259, 31);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(265, 122);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
-            // consumo_kw
+            // button5
             // 
-            this.consumo_kw.Location = new System.Drawing.Point(403, 124);
-            this.consumo_kw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.consumo_kw.Name = "consumo_kw";
-            this.consumo_kw.Size = new System.Drawing.Size(100, 22);
-            this.consumo_kw.TabIndex = 6;
+            this.button5.Location = new System.Drawing.Point(349, 235);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Salir";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // consumo_medidor
+            // label3
             // 
-            this.consumo_medidor.Location = new System.Drawing.Point(168, 124);
-            this.consumo_medidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.consumo_medidor.Name = "consumo_medidor";
-            this.consumo_medidor.Size = new System.Drawing.Size(100, 22);
-            this.consumo_medidor.TabIndex = 5;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(305, 123);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(71, 17);
-            this.label56.TabIndex = 2;
-            this.label56.Text = "Consumo:";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(41, 123);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(105, 17);
-            this.label55.TabIndex = 1;
-            this.label55.Text = "No. de medidor";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(196, 44);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(171, 17);
-            this.label54.TabIndex = 0;
-            this.label54.Text = "Declaracion de consumos";
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.Location = new System.Drawing.Point(4, 25);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(951, 621);
-            this.tabPage13.TabIndex = 11;
-            this.tabPage13.Text = "Reporte historico";
-            this.tabPage13.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(329, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Salir de la sesion ";
             // 
             // NAME
             // 
@@ -2522,6 +2500,179 @@ namespace AAVD.Forms
             this.CONTRACT_TYPE.Name = "CONTRACT_TYPE";
             this.CONTRACT_TYPE.Width = 125;
             // 
+            // nud_Medidor
+            // 
+            this.nud_Medidor.Location = new System.Drawing.Point(153, 62);
+            this.nud_Medidor.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_Medidor.Name = "nud_Medidor";
+            this.nud_Medidor.Size = new System.Drawing.Size(120, 22);
+            this.nud_Medidor.TabIndex = 18;
+            // 
+            // nud_Servicio
+            // 
+            this.nud_Servicio.Location = new System.Drawing.Point(153, 100);
+            this.nud_Servicio.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_Servicio.Name = "nud_Servicio";
+            this.nud_Servicio.Size = new System.Drawing.Size(120, 22);
+            this.nud_Servicio.TabIndex = 19;
+            // 
+            // nud_Cliente
+            // 
+            this.nud_Cliente.Location = new System.Drawing.Point(166, 41);
+            this.nud_Cliente.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_Cliente.Name = "nud_Cliente";
+            this.nud_Cliente.Size = new System.Drawing.Size(152, 22);
+            this.nud_Cliente.TabIndex = 18;
+            // 
+            // nud_ClienteNC
+            // 
+            this.nud_ClienteNC.Location = new System.Drawing.Point(181, 34);
+            this.nud_ClienteNC.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_ClienteNC.Name = "nud_ClienteNC";
+            this.nud_ClienteNC.Size = new System.Drawing.Size(149, 22);
+            this.nud_ClienteNC.TabIndex = 11;
+            // 
+            // nud_MedidorNC
+            // 
+            this.nud_MedidorNC.Location = new System.Drawing.Point(181, 113);
+            this.nud_MedidorNC.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_MedidorNC.Name = "nud_MedidorNC";
+            this.nud_MedidorNC.Size = new System.Drawing.Size(149, 22);
+            this.nud_MedidorNC.TabIndex = 12;
+            // 
+            // nud_ServicioNC
+            // 
+            this.nud_ServicioNC.Location = new System.Drawing.Point(181, 154);
+            this.nud_ServicioNC.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_ServicioNC.Name = "nud_ServicioNC";
+            this.nud_ServicioNC.Size = new System.Drawing.Size(149, 22);
+            this.nud_ServicioNC.TabIndex = 13;
+            // 
+            // consumoHistorico_EMPGTD
+            // 
+            this.consumoHistorico_EMPGTD.AllowUserToAddRows = false;
+            this.consumoHistorico_EMPGTD.AllowUserToDeleteRows = false;
+            this.consumoHistorico_EMPGTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.consumoHistorico_EMPGTD.Location = new System.Drawing.Point(-21, 81);
+            this.consumoHistorico_EMPGTD.Name = "consumoHistorico_EMPGTD";
+            this.consumoHistorico_EMPGTD.ReadOnly = true;
+            this.consumoHistorico_EMPGTD.RowHeadersWidth = 51;
+            this.consumoHistorico_EMPGTD.RowTemplate.Height = 24;
+            this.consumoHistorico_EMPGTD.Size = new System.Drawing.Size(966, 477);
+            this.consumoHistorico_EMPGTD.TabIndex = 0;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(386, 34);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(204, 17);
+            this.label79.TabIndex = 1;
+            this.label79.Text = "Reporte historico de consumos";
+            // 
+            // nudConsumoH_medidor
+            // 
+            this.nudConsumoH_medidor.Location = new System.Drawing.Point(430, 581);
+            this.nudConsumoH_medidor.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudConsumoH_medidor.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudConsumoH_medidor.Name = "nudConsumoH_medidor";
+            this.nudConsumoH_medidor.Size = new System.Drawing.Size(120, 22);
+            this.nudConsumoH_medidor.TabIndex = 2;
+            this.nudConsumoH_medidor.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudConsumoH_servcio
+            // 
+            this.nudConsumoH_servcio.Location = new System.Drawing.Point(659, 581);
+            this.nudConsumoH_servcio.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudConsumoH_servcio.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudConsumoH_servcio.Name = "nudConsumoH_servcio";
+            this.nudConsumoH_servcio.Size = new System.Drawing.Size(120, 22);
+            this.nudConsumoH_servcio.TabIndex = 3;
+            this.nudConsumoH_servcio.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // dtpConsumoH_year
+            // 
+            this.dtpConsumoH_year.Location = new System.Drawing.Point(216, 581);
+            this.dtpConsumoH_year.Name = "dtpConsumoH_year";
+            this.dtpConsumoH_year.Size = new System.Drawing.Size(108, 22);
+            this.dtpConsumoH_year.TabIndex = 4;
+            this.dtpConsumoH_year.ValueChanged += new System.EventHandler(this.dtpConsumoH_year_ValueChanged);
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(133, 581);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(33, 17);
+            this.label80.TabIndex = 5;
+            this.label80.Text = "Año";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(359, 581);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(59, 17);
+            this.label81.TabIndex = 6;
+            this.label81.Text = "Medidor";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(582, 581);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(58, 17);
+            this.label82.TabIndex = 7;
+            this.label82.Text = "Servicio";
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2578,16 +2729,16 @@ namespace AAVD.Forms
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Tarifas.ResumeLayout(false);
             this.Tarifas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TarifasFTG_WN)).EndInit();
-            this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsumosDTG_WN)).EndInit();
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.groupBox14.ResumeLayout(false);
@@ -2596,10 +2747,21 @@ namespace AAVD.Forms
             this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            this.tabPage12.ResumeLayout(false);
-            this.tabPage12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConsumosDTG_WN)).EndInit();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Medidor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Servicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ClienteNC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_MedidorNC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ServicioNC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consumoHistorico_EMPGTD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_medidor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_servcio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2671,7 +2833,6 @@ namespace AAVD.Forms
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox contrato_Tipo;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox contrato_numCLiente;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label23;
@@ -2774,13 +2935,10 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.TextBox tb_medidor;
-        private System.Windows.Forms.TextBox c_noServicio;
-        private System.Windows.Forms.TextBox c_noMedidor;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.TextBox c_numCliente;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.TextBox edc_numCliente;
@@ -2796,8 +2954,6 @@ namespace AAVD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn COLONY;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATE;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONTRACT_TYPE;
-        private System.Windows.Forms.TextBox contrato_numServicio;
-        private System.Windows.Forms.TextBox contrato_numMedidor;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label71;
@@ -2823,5 +2979,19 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.NumericUpDown nud_Medidor;
+        private System.Windows.Forms.NumericUpDown nud_Servicio;
+        private System.Windows.Forms.NumericUpDown nud_Cliente;
+        private System.Windows.Forms.NumericUpDown nud_ServicioNC;
+        private System.Windows.Forms.NumericUpDown nud_MedidorNC;
+        private System.Windows.Forms.NumericUpDown nud_ClienteNC;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.DateTimePicker dtpConsumoH_year;
+        private System.Windows.Forms.NumericUpDown nudConsumoH_servcio;
+        private System.Windows.Forms.NumericUpDown nudConsumoH_medidor;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.DataGridView consumoHistorico_EMPGTD;
     }
 }
