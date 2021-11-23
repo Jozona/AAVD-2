@@ -57,8 +57,12 @@ namespace AAVD.Forms
             recibo_year.Format = DateTimePickerFormat.Custom;
             recibo_year.CustomFormat = "yyyy";
 
+            dtp_ContratosVer.Format = DateTimePickerFormat.Custom;
+            dtp_ContratosVer.CustomFormat = "yyyy";
+
             updateDataGridConsumosSinFiltros();
             updateRecibos();
+            updateContratos();
             this.CenterToScreen();
         }
 
@@ -959,6 +963,46 @@ namespace AAVD.Forms
             }
         }
 
+        //Datagrid para contratos
+        public void updateContratos() {
+            List<Clientes> clientes = new List<Clientes>();
+            clientes = DatabaseManagement.getInstance().getClientWithUserId(currentUserClien);
+
+
+            List<Contratos> contratos = new List<Contratos>();
+            contratos = DatabaseManagement.getInstance().GetContratos();
+
+            List<Contratos> csmDTG = new List<Contratos>();
+            foreach (var contrato in contratos)
+            {
+                foreach (var client in clientes)
+                {
+                    if (contrato.id_cliente.ToString().Equals(client.client_id.ToString()))
+                    {
+                        Contratos contratoDTG = new Contratos();
+                        contratoDTG.num_servicio = contrato.num_servicio;
+                        contratoDTG.id_cliente = contrato.id_cliente;
+                        contratoDTG.tipo = contrato.tipo;
+                        contratoDTG.num_medidor = contrato.num_medidor;
+                        contratoDTG.num_servicio = contrato.num_servicio;
+                        contratoDTG.calle = contrato.calle;
+                        contratoDTG.colonia = contrato.colonia;
+                        contratoDTG.ciudad = contrato.ciudad;
+                        contratoDTG.estado = contrato.estado;
+                        contratoDTG.num_cliente = contrato.num_cliente;
+                        contratoDTG.creation_day = contrato.creation_day;
+                        contratoDTG.creation_month = contrato.creation_month;
+                        contratoDTG.creation_year = contrato.creation_year;
+                        csmDTG.Add(contrato);
+                    }
+                }
+
+            }
+            RecibosDTG_WN.DataSource = csmDTG;
+
+        }
+
+
         //Datagrid para recibos
         public void updateRecibos() {
             List<Recibos> recibos = new List<Recibos>();
@@ -1067,6 +1111,67 @@ namespace AAVD.Forms
                 swOut.Close();
 
             }
-        } 
+        }
+
+        //Se cambia el a;o
+        private void dtp_ContratosVer_ValueChanged(object sender, EventArgs e)
+        {
+            List<Clientes> clientes = new List<Clientes>();
+            clientes = DatabaseManagement.getInstance().getClientWithUserId(currentUserClien);
+
+
+            List<Contratos> contratos = new List<Contratos>();
+            contratos = DatabaseManagement.getInstance().GetContratos();
+
+            List<Contratos> csmDTG = new List<Contratos>();
+            foreach (var contrato in contratos)
+            {
+                foreach (var client in clientes)
+                {
+                    if (contrato.id_cliente.ToString().Equals(client.client_id.ToString()))
+                    {
+                        if (dtp_ContratosVer.Text.Equals(contrato.creation_year.ToString()))
+                        {
+                            Contratos contratoDTG = new Contratos();
+                            contratoDTG.num_servicio = contrato.num_servicio;
+                            contratoDTG.id_cliente = contrato.id_cliente;
+                            contratoDTG.tipo = contrato.tipo;
+                            contratoDTG.num_medidor = contrato.num_medidor;
+                            contratoDTG.num_servicio = contrato.num_servicio;
+                            contratoDTG.calle = contrato.calle;
+                            contratoDTG.colonia = contrato.colonia;
+                            contratoDTG.ciudad = contrato.ciudad;
+                            contratoDTG.estado = contrato.estado;
+                            contratoDTG.num_cliente = contrato.num_cliente;
+                            contratoDTG.creation_day = contrato.creation_day;
+                            contratoDTG.creation_month = contrato.creation_month;
+                            contratoDTG.creation_year = contrato.creation_year;
+                            csmDTG.Add(contrato);
+                        }
+
+                    }
+                }
+
+            }
+            RecibosDTG_WN.DataSource = csmDTG;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string folderPath = "";
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog1.SelectedPath;
+            }
+
+            String pdfName = folderPath + "\\ReporteContratos.csv";
+            if (folderPath.Equals(""))
+            {
+                return;
+            }
+            writeCSV(RecibosDTG_WN, pdfName);
+            MessageBox.Show("Csv generado");
+        }
     }
 }

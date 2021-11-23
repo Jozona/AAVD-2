@@ -31,17 +31,6 @@ namespace AAVD.Forms
         {
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TextNumServicio = new System.Windows.Forms.TextBox();
-            this.TextNumMedidor = new System.Windows.Forms.TextBox();
-            this.TextCurp = new System.Windows.Forms.TextBox();
-            this.TextNombreCli = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Consultar_consumo = new System.Windows.Forms.TabPage();
             this.no_servicioH = new System.Windows.Forms.ComboBox();
@@ -62,10 +51,6 @@ namespace AAVD.Forms
             this.PENDIENTE_PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.Generar_pdf_consumo = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Generar_pdf_estatus = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.RecibosDTGWN = new System.Windows.Forms.DataGridView();
             this.NUM_MEDIDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,9 +64,6 @@ namespace AAVD.Forms
             this.PAGO_EXCEDENTE_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PAGADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.Buscar_contrato = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.RecibosDTG_WN = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -137,13 +119,15 @@ namespace AAVD.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dtp_ContratosVer = new System.Windows.Forms.DateTimePicker();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Consultar_consumo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsumoHistoriaDtg_WN)).BeginInit();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -158,8 +142,9 @@ namespace AAVD.Forms
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Controls.Add(this.label1);
             this.tabPage5.Controls.Add(this.pictureBox2);
-            this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
@@ -172,7 +157,7 @@ namespace AAVD.Forms
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox2.Location = new System.Drawing.Point(649, 205);
+            this.pictureBox2.Location = new System.Drawing.Point(348, 219);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(225, 97);
@@ -180,124 +165,10 @@ namespace AAVD.Forms
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.TextNumServicio);
-            this.groupBox1.Controls.Add(this.TextNumMedidor);
-            this.groupBox1.Controls.Add(this.TextCurp);
-            this.groupBox1.Controls.Add(this.TextNombreCli);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(40, 102);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(549, 294);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos del cliente";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(169, 226);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 22);
-            this.textBox1.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 230);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Domicilio:";
-            // 
-            // TextNumServicio
-            // 
-            this.TextNumServicio.Location = new System.Drawing.Point(169, 183);
-            this.TextNumServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.TextNumServicio.Name = "TextNumServicio";
-            this.TextNumServicio.Size = new System.Drawing.Size(164, 22);
-            this.TextNumServicio.TabIndex = 7;
-            // 
-            // TextNumMedidor
-            // 
-            this.TextNumMedidor.Location = new System.Drawing.Point(169, 145);
-            this.TextNumMedidor.Margin = new System.Windows.Forms.Padding(4);
-            this.TextNumMedidor.Name = "TextNumMedidor";
-            this.TextNumMedidor.Size = new System.Drawing.Size(236, 22);
-            this.TextNumMedidor.TabIndex = 6;
-            // 
-            // TextCurp
-            // 
-            this.TextCurp.Location = new System.Drawing.Point(169, 105);
-            this.TextCurp.Margin = new System.Windows.Forms.Padding(4);
-            this.TextCurp.Name = "TextCurp";
-            this.TextCurp.Size = new System.Drawing.Size(243, 22);
-            this.TextCurp.TabIndex = 5;
-            // 
-            // TextNombreCli
-            // 
-            this.TextNombreCli.Location = new System.Drawing.Point(169, 62);
-            this.TextNombreCli.Margin = new System.Windows.Forms.Padding(4);
-            this.TextNombreCli.Name = "TextNombreCli";
-            this.TextNombreCli.Size = new System.Drawing.Size(355, 22);
-            this.TextNombreCli.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 183);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Numero del servicio:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 145);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Numero del medidor:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 105);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Curp:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre:";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.Consultar_consumo);
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -508,88 +379,6 @@ namespace AAVD.Forms
             this.Generar_pdf_consumo.UseVisualStyleBackColor = true;
             this.Generar_pdf_consumo.Click += new System.EventHandler(this.Generar_pdf_consumo_Click);
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.Generar_pdf_estatus);
-            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(922, 568);
-            this.tabPage1.TabIndex = 6;
-            this.tabPage1.Text = "Estatus de los recibos";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(97, 44);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 17);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Estatus de los pagos de cada recibo";
-            // 
-            // Generar_pdf_estatus
-            // 
-            this.Generar_pdf_estatus.Location = new System.Drawing.Point(695, 441);
-            this.Generar_pdf_estatus.Margin = new System.Windows.Forms.Padding(4);
-            this.Generar_pdf_estatus.Name = "Generar_pdf_estatus";
-            this.Generar_pdf_estatus.Size = new System.Drawing.Size(148, 34);
-            this.Generar_pdf_estatus.TabIndex = 2;
-            this.Generar_pdf_estatus.Text = "Generar PDF";
-            this.Generar_pdf_estatus.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 26;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(101, 101);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 12;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(724, 306);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.RecibosDTGWN);
@@ -718,9 +507,8 @@ namespace AAVD.Forms
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.Buscar_contrato);
-            this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.dtp_ContratosVer);
+            this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.RecibosDTG_WN);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
@@ -731,43 +519,14 @@ namespace AAVD.Forms
             this.tabPage3.Text = "Ver contratos";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // Buscar_contrato
-            // 
-            this.Buscar_contrato.Location = new System.Drawing.Point(491, 17);
-            this.Buscar_contrato.Margin = new System.Windows.Forms.Padding(4);
-            this.Buscar_contrato.Name = "Buscar_contrato";
-            this.Buscar_contrato.Size = new System.Drawing.Size(156, 30);
-            this.Buscar_contrato.TabIndex = 3;
-            this.Buscar_contrato.Text = "Buscar";
-            this.Buscar_contrato.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(207, 21);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(196, 24);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(45, 21);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 17);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Tipo de contrato:";
-            // 
             // RecibosDTG_WN
             // 
             this.RecibosDTG_WN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecibosDTG_WN.Location = new System.Drawing.Point(31, 58);
+            this.RecibosDTG_WN.Location = new System.Drawing.Point(9, 22);
             this.RecibosDTG_WN.Margin = new System.Windows.Forms.Padding(4);
             this.RecibosDTG_WN.Name = "RecibosDTG_WN";
             this.RecibosDTG_WN.RowHeadersWidth = 51;
-            this.RecibosDTG_WN.Size = new System.Drawing.Size(863, 466);
+            this.RecibosDTG_WN.Size = new System.Drawing.Size(905, 466);
             this.RecibosDTG_WN.TabIndex = 0;
             // 
             // tabPage4
@@ -1318,6 +1077,42 @@ namespace AAVD.Forms
             this.label10.TabIndex = 0;
             this.label10.Text = "Numero de servicio";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(387, 181);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Pantalla inicial de cliente.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(427, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Bienvenido";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(403, 511);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(105, 39);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Generar CSV";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dtp_ContratosVer
+            // 
+            this.dtp_ContratosVer.Location = new System.Drawing.Point(659, 517);
+            this.dtp_ContratosVer.Name = "dtp_ContratosVer";
+            this.dtp_ContratosVer.Size = new System.Drawing.Size(123, 22);
+            this.dtp_ContratosVer.TabIndex = 2;
+            this.dtp_ContratosVer.ValueChanged += new System.EventHandler(this.dtp_ContratosVer_ValueChanged);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1329,19 +1124,15 @@ namespace AAVD.Forms
             this.Text = "CLIENT";
             this.Load += new System.EventHandler(this.Client_Load);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.Consultar_consumo.ResumeLayout(false);
             this.Consultar_consumo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsumoHistoriaDtg_WN)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecibosDTG_WN)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -1361,31 +1152,13 @@ namespace AAVD.Forms
         #endregion
 
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TextNumServicio;
-        private System.Windows.Forms.TextBox TextNumMedidor;
-        private System.Windows.Forms.TextBox TextCurp;
-        private System.Windows.Forms.TextBox TextNombreCli;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage Consultar_consumo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Generar_pdf_consumo;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button Generar_pdf_estatus;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button Buscar_contrato;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView RecibosDTG_WN;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage6;
@@ -1468,5 +1241,9 @@ namespace AAVD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn PAGADO;
         private System.Windows.Forms.ComboBox medidor_pdf;
         private System.Windows.Forms.ComboBox medidor_wn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dtp_ContratosVer;
     }
 }

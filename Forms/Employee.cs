@@ -514,6 +514,12 @@ namespace AAVD.Forms
             {
                 csvPath = openFileDialog1.FileName;
             }
+
+            if (csvPath.Equals(""))
+            {
+                return;
+            }
+
             var result = csvPath.Substring(csvPath.Length - 3);
             if (result != "csv")
             {
@@ -521,19 +527,22 @@ namespace AAVD.Forms
                 return;
             }
 
-            if (csvPath.Equals(""))
+
+            try
             {
+                var reader = File.OpenText(csvPath);
+                var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
+                var tarifasCSV = csvReader.GetRecords<TarifasCSV>();
+                foreach (var tarifa in tarifasCSV)
+                {
+                    DatabaseManagement.getInstance().crearTarifa(tarifa.tipo, tarifa.basico.ToString(), tarifa.intermedio.ToString(), tarifa.excedente.ToString());
+                }
+                MessageBox.Show("Listo, tarifas cargadas...");
+            }
+            catch {
+                MessageBox.Show("Documento invalido");
                 return;
             }
-
-            var reader = File.OpenText(csvPath);
-            var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
-            var tarifasCSV = csvReader.GetRecords<TarifasCSV>();
-            foreach (var tarifa in tarifasCSV)
-            {
-                DatabaseManagement.getInstance().crearTarifa(tarifa.tipo, tarifa.basico.ToString(), tarifa.intermedio.ToString(), tarifa.excedente.ToString());
-            }
-            MessageBox.Show("Listo, tarifas cargadas...");
         }
 
 
@@ -1007,6 +1016,13 @@ namespace AAVD.Forms
             {
                 csvPath = openFileDialog1.FileName;
             }
+
+            if (csvPath.Equals(""))
+            {
+                return;
+            }
+
+
             var result = csvPath.Substring(csvPath.Length - 3);
             if (result != "csv")
             {
@@ -1014,21 +1030,30 @@ namespace AAVD.Forms
                 return;
             }
 
-            if (csvPath.Equals(""))
-            {
+            
+           
+
+            try {
+                var reader = File.OpenText(csvPath);
+                var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
+                var consumosCSV = csvReader.GetRecords<ConsumosCSV>();
+                foreach (var consumo in consumosCSV)
+                {
+                    DatabaseManagement.getInstance().insertConsumo(consumo.numMedidor.ToString(), consumo.consumo.ToString(), consumo.year, consumo.month);
+                }
+                MessageBox.Show("Listo, consumos cargados...");
+                updateDataGridConsumos();
+
+            }
+            catch{
+                MessageBox.Show("Documento invalido.");
                 return;
             }
 
-            var reader = File.OpenText(csvPath);
-            var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
-            var consumosCSV = csvReader.GetRecords<ConsumosCSV>();
-            foreach (var consumo in consumosCSV)
-            {
-                DatabaseManagement.getInstance().insertConsumo(consumo.numMedidor.ToString(), consumo.consumo.ToString(), consumo.year, consumo.month);
-            }
-            MessageBox.Show("Listo, consumos cargados...");
-            updateDataGridConsumos();
+           
         }
+
+
 
         //Mostrar un recibo en la pantalla
         private void button7_Click_1(object sender, EventArgs e)
@@ -1202,8 +1227,6 @@ namespace AAVD.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             //AQUI
-
-
             updateDataGridReporteTarifa();
         }
 
