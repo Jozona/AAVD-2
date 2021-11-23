@@ -323,6 +323,36 @@ namespace AAVD.Forms
         //Activar un usuario
         private void btn_activar_Click(object sender, EventArgs e)
         {
+            if (eb_reactivar.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa un usuario");
+                return;
+            }
+
+            bool existe = false;
+            bool activo = false;
+            List<Users> users = new List<Users>();
+            users = DatabaseManagement.getInstance().getUsers();
+            foreach (var user in users) {
+                if (user.user_name.Equals(eb_reactivar.Text)) {
+                    existe = true;
+                    if (user.active == true) {
+                        activo = true;
+                    }
+                }
+            }
+
+            if (!existe) {
+                MessageBox.Show("Ingresa un usuario existente");
+                return;
+            }
+
+            if (activo) {
+                MessageBox.Show("Este usuario esta activo");
+                return;
+            }
+
+
             DatabaseManagement.getInstance().userUnban(eb_reactivar.Text);
             MessageBox.Show("Usuario reactivado");
         }
@@ -473,6 +503,15 @@ namespace AAVD.Forms
 
 
             }
-        
+
+        private void eb_reactivar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

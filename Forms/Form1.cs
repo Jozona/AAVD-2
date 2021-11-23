@@ -47,7 +47,11 @@ namespace AAVD
             //Falta:
             //Poder recuperar contrase;a. Si se ingresa un usuario 3 veces con la contrase;a incorrecta, bloquearlo.
             //Comentar hasta que acabe el foreach si cassandra no esta onectado. Para poder abrir las ventanas asi mero.
-            
+            if (txtUser.Text.Equals("") || txtPassword.Text.Equals(""))
+            {
+                MessageBox.Show("Ningun espacio puede estar vacio");
+                return;
+            }
             List<Users> datosUsuario = new List<Users>();
             datosUsuario = DatabaseManagement.getInstance().getRemember(txtUser.Text);
             foreach (var datos in datosUsuario) {
@@ -159,6 +163,11 @@ namespace AAVD
         //Recordar contrase;a
         private void btn_recordar_Click(object sender, EventArgs e)
         {
+            if (txtUser.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa un usuario");
+                return;
+            }
             List<Users> users = new List<Users>();
             users = DatabaseManagement.getInstance().getRemember(txtUser.Text);
             foreach (var usuario in users) {

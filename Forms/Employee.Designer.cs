@@ -306,12 +306,12 @@ namespace AAVD.Forms
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.Tarifas);
-            this.tabControl1.Controls.Add(this.tabPage10);
-            this.tabControl1.Controls.Add(this.tabPage11);
             this.tabControl1.Controls.Add(this.tabPage12);
             this.tabControl1.Controls.Add(this.tabPage13);
+            this.tabControl1.Controls.Add(this.tabPage11);
+            this.tabControl1.Controls.Add(this.tabPage10);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Location = new System.Drawing.Point(12, 14);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
@@ -917,7 +917,7 @@ namespace AAVD.Forms
             this.edc_password.Location = new System.Drawing.Point(152, 57);
             this.edc_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.edc_password.Name = "edc_password";
-            this.edc_password.PasswordChar = '*';
+            this.edc_password.ReadOnly = true;
             this.edc_password.Size = new System.Drawing.Size(121, 22);
             this.edc_password.TabIndex = 3;
             // 
@@ -926,6 +926,7 @@ namespace AAVD.Forms
             this.edc_usuario.Location = new System.Drawing.Point(152, 25);
             this.edc_usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.edc_usuario.Name = "edc_usuario";
+            this.edc_usuario.ReadOnly = true;
             this.edc_usuario.Size = new System.Drawing.Size(121, 22);
             this.edc_usuario.TabIndex = 2;
             // 
@@ -962,6 +963,7 @@ namespace AAVD.Forms
             // 
             // edc_contrato
             // 
+            this.edc_contrato.Enabled = false;
             this.edc_contrato.FormattingEnabled = true;
             this.edc_contrato.Items.AddRange(new object[] {
             "Domestico",
@@ -1704,6 +1706,7 @@ namespace AAVD.Forms
             this.button5.TabIndex = 1;
             this.button5.Text = "Salir";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label3
             // 

@@ -64,6 +64,15 @@ namespace AAVD.Base_de_datos
 
         }
 
+        //Conseguir todos los usuarios
+        public List<Users> getUsers() {
+            string query = "SELECT * FROM USERS_LOGIN;";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Users> users = mapper.Fetch<Users>(query);
+            return users.ToList();
+        }
+
         //Desactivar un usuario
         public void userBan(string user_name)
         {

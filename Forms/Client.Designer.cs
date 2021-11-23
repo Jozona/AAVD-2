@@ -67,6 +67,17 @@ namespace AAVD.Forms
             this.Generar_pdf_estatus = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.RecibosDTGWN = new System.Windows.Forms.DataGridView();
+            this.NUM_MEDIDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YEAR_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTH_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_BASICO_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_INTERMEDIO_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_EXCEDENTE_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO_BASICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO_INTERMEDIO_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO_EXCEDENTE_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Buscar_contrato = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -74,6 +85,7 @@ namespace AAVD.Forms
             this.RecibosDTG_WN = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.medidor_pdf = new System.Windows.Forms.ComboBox();
             this.month_reciboPDF = new System.Windows.Forms.DateTimePicker();
             this.generar_recibo = new System.Windows.Forms.Button();
             this.year_reciboPDF = new System.Windows.Forms.DateTimePicker();
@@ -81,6 +93,7 @@ namespace AAVD.Forms
             this.label78 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.medidor_wn = new System.Windows.Forms.ComboBox();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.recibo_year = new System.Windows.Forms.DateTimePicker();
@@ -107,6 +120,7 @@ namespace AAVD.Forms
             this.label63 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.medidores = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tarjeta_ccv = new System.Windows.Forms.TextBox();
@@ -123,20 +137,6 @@ namespace AAVD.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.medidores = new System.Windows.Forms.ComboBox();
-            this.RecibosDTGWN = new System.Windows.Forms.DataGridView();
-            this.NUM_MEDIDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YEAR_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTH_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KW_BASICO_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KW_INTERMEDIO_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KW_EXCEDENTE_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO_BASICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO_INTERMEDIO_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO_EXCEDENTE_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medidor_pdf = new System.Windows.Forms.ComboBox();
-            this.medidor_wn = new System.Windows.Forms.ComboBox();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -145,6 +145,7 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ConsumoHistoriaDtg_WN)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecibosDTG_WN)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -153,7 +154,6 @@ namespace AAVD.Forms
             this.groupBox12.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
@@ -506,6 +506,7 @@ namespace AAVD.Forms
             this.Generar_pdf_consumo.TabIndex = 1;
             this.Generar_pdf_consumo.Text = "Generar PDF";
             this.Generar_pdf_consumo.UseVisualStyleBackColor = true;
+            this.Generar_pdf_consumo.Click += new System.EventHandler(this.Generar_pdf_consumo_Click);
             // 
             // tabPage1
             // 
@@ -601,6 +602,120 @@ namespace AAVD.Forms
             this.tabPage2.Text = "Consultar recibo";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // RecibosDTGWN
+            // 
+            this.RecibosDTGWN.AllowUserToAddRows = false;
+            this.RecibosDTGWN.AllowUserToDeleteRows = false;
+            this.RecibosDTGWN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecibosDTGWN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NUM_MEDIDOR,
+            this.YEAR_RCB,
+            this.MONTH_RCB,
+            this.KW_BASICO_RCB,
+            this.KW_INTERMEDIO_RCB,
+            this.KW_EXCEDENTE_RCB,
+            this.PAGO_BASICO,
+            this.PAGO_INTERMEDIO_KW,
+            this.PAGO_EXCEDENTE_KW,
+            this.PAGADO});
+            this.RecibosDTGWN.Location = new System.Drawing.Point(9, 23);
+            this.RecibosDTGWN.Margin = new System.Windows.Forms.Padding(4);
+            this.RecibosDTGWN.Name = "RecibosDTGWN";
+            this.RecibosDTGWN.ReadOnly = true;
+            this.RecibosDTGWN.RowHeadersWidth = 51;
+            this.RecibosDTGWN.Size = new System.Drawing.Size(905, 537);
+            this.RecibosDTGWN.TabIndex = 4;
+            // 
+            // NUM_MEDIDOR
+            // 
+            this.NUM_MEDIDOR.DataPropertyName = "NUM_MEDIDOR";
+            this.NUM_MEDIDOR.HeaderText = "Numero de medidor";
+            this.NUM_MEDIDOR.MinimumWidth = 6;
+            this.NUM_MEDIDOR.Name = "NUM_MEDIDOR";
+            this.NUM_MEDIDOR.ReadOnly = true;
+            this.NUM_MEDIDOR.Width = 125;
+            // 
+            // YEAR_RCB
+            // 
+            this.YEAR_RCB.DataPropertyName = "YEAR";
+            this.YEAR_RCB.HeaderText = "Año";
+            this.YEAR_RCB.MinimumWidth = 6;
+            this.YEAR_RCB.Name = "YEAR_RCB";
+            this.YEAR_RCB.ReadOnly = true;
+            this.YEAR_RCB.Width = 125;
+            // 
+            // MONTH_RCB
+            // 
+            this.MONTH_RCB.DataPropertyName = "MONTH";
+            this.MONTH_RCB.HeaderText = "Mes";
+            this.MONTH_RCB.MinimumWidth = 6;
+            this.MONTH_RCB.Name = "MONTH_RCB";
+            this.MONTH_RCB.ReadOnly = true;
+            this.MONTH_RCB.Width = 125;
+            // 
+            // KW_BASICO_RCB
+            // 
+            this.KW_BASICO_RCB.DataPropertyName = "KW_BASICO";
+            this.KW_BASICO_RCB.HeaderText = "Consumo basico";
+            this.KW_BASICO_RCB.MinimumWidth = 6;
+            this.KW_BASICO_RCB.Name = "KW_BASICO_RCB";
+            this.KW_BASICO_RCB.ReadOnly = true;
+            this.KW_BASICO_RCB.Width = 125;
+            // 
+            // KW_INTERMEDIO_RCB
+            // 
+            this.KW_INTERMEDIO_RCB.DataPropertyName = "KW_INTERMEDIO";
+            this.KW_INTERMEDIO_RCB.HeaderText = "Consumo intermedio";
+            this.KW_INTERMEDIO_RCB.MinimumWidth = 6;
+            this.KW_INTERMEDIO_RCB.Name = "KW_INTERMEDIO_RCB";
+            this.KW_INTERMEDIO_RCB.ReadOnly = true;
+            this.KW_INTERMEDIO_RCB.Width = 125;
+            // 
+            // KW_EXCEDENTE_RCB
+            // 
+            this.KW_EXCEDENTE_RCB.DataPropertyName = "KW_EXCEDENTE";
+            this.KW_EXCEDENTE_RCB.HeaderText = "Consumo excedente";
+            this.KW_EXCEDENTE_RCB.MinimumWidth = 6;
+            this.KW_EXCEDENTE_RCB.Name = "KW_EXCEDENTE_RCB";
+            this.KW_EXCEDENTE_RCB.ReadOnly = true;
+            this.KW_EXCEDENTE_RCB.Width = 125;
+            // 
+            // PAGO_BASICO
+            // 
+            this.PAGO_BASICO.DataPropertyName = "PAGAR_BASICO";
+            this.PAGO_BASICO.HeaderText = "Pago basico";
+            this.PAGO_BASICO.MinimumWidth = 6;
+            this.PAGO_BASICO.Name = "PAGO_BASICO";
+            this.PAGO_BASICO.ReadOnly = true;
+            this.PAGO_BASICO.Width = 125;
+            // 
+            // PAGO_INTERMEDIO_KW
+            // 
+            this.PAGO_INTERMEDIO_KW.DataPropertyName = "PAGAR_INTERMEDIO";
+            this.PAGO_INTERMEDIO_KW.HeaderText = "Pago intermedio";
+            this.PAGO_INTERMEDIO_KW.MinimumWidth = 6;
+            this.PAGO_INTERMEDIO_KW.Name = "PAGO_INTERMEDIO_KW";
+            this.PAGO_INTERMEDIO_KW.ReadOnly = true;
+            this.PAGO_INTERMEDIO_KW.Width = 125;
+            // 
+            // PAGO_EXCEDENTE_KW
+            // 
+            this.PAGO_EXCEDENTE_KW.DataPropertyName = "PAGAR_EXCEDENTE";
+            this.PAGO_EXCEDENTE_KW.HeaderText = "Pago excedente";
+            this.PAGO_EXCEDENTE_KW.MinimumWidth = 6;
+            this.PAGO_EXCEDENTE_KW.Name = "PAGO_EXCEDENTE_KW";
+            this.PAGO_EXCEDENTE_KW.ReadOnly = true;
+            this.PAGO_EXCEDENTE_KW.Width = 125;
+            // 
+            // PAGADO
+            // 
+            this.PAGADO.DataPropertyName = "PAGADO";
+            this.PAGADO.HeaderText = "Estatus de pago";
+            this.PAGADO.MinimumWidth = 6;
+            this.PAGADO.Name = "PAGADO";
+            this.PAGADO.ReadOnly = true;
+            this.PAGADO.Width = 125;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.Buscar_contrato);
@@ -689,6 +804,14 @@ namespace AAVD.Forms
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Generar recibo en PDF";
             // 
+            // medidor_pdf
+            // 
+            this.medidor_pdf.FormattingEnabled = true;
+            this.medidor_pdf.Location = new System.Drawing.Point(184, 34);
+            this.medidor_pdf.Name = "medidor_pdf";
+            this.medidor_pdf.Size = new System.Drawing.Size(103, 24);
+            this.medidor_pdf.TabIndex = 35;
+            // 
             // month_reciboPDF
             // 
             this.month_reciboPDF.Location = new System.Drawing.Point(557, 34);
@@ -758,6 +881,14 @@ namespace AAVD.Forms
             this.groupBox13.Size = new System.Drawing.Size(701, 82);
             this.groupBox13.TabIndex = 40;
             this.groupBox13.TabStop = false;
+            // 
+            // medidor_wn
+            // 
+            this.medidor_wn.FormattingEnabled = true;
+            this.medidor_wn.Location = new System.Drawing.Point(161, 26);
+            this.medidor_wn.Name = "medidor_wn";
+            this.medidor_wn.Size = new System.Drawing.Size(100, 24);
+            this.medidor_wn.TabIndex = 11;
             // 
             // label60
             // 
@@ -1029,6 +1160,14 @@ namespace AAVD.Forms
             this.tabPage6.Text = "Pagar recibo";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // medidores
+            // 
+            this.medidores.FormattingEnabled = true;
+            this.medidores.Location = new System.Drawing.Point(258, 95);
+            this.medidores.Name = "medidores";
+            this.medidores.Size = new System.Drawing.Size(100, 24);
+            this.medidores.TabIndex = 20;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -1179,144 +1318,6 @@ namespace AAVD.Forms
             this.label10.TabIndex = 0;
             this.label10.Text = "Numero de servicio";
             // 
-            // medidores
-            // 
-            this.medidores.FormattingEnabled = true;
-            this.medidores.Location = new System.Drawing.Point(258, 95);
-            this.medidores.Name = "medidores";
-            this.medidores.Size = new System.Drawing.Size(100, 24);
-            this.medidores.TabIndex = 20;
-            // 
-            // RecibosDTGWN
-            // 
-            this.RecibosDTGWN.AllowUserToAddRows = false;
-            this.RecibosDTGWN.AllowUserToDeleteRows = false;
-            this.RecibosDTGWN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecibosDTGWN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NUM_MEDIDOR,
-            this.YEAR_RCB,
-            this.MONTH_RCB,
-            this.KW_BASICO_RCB,
-            this.KW_INTERMEDIO_RCB,
-            this.KW_EXCEDENTE_RCB,
-            this.PAGO_BASICO,
-            this.PAGO_INTERMEDIO_KW,
-            this.PAGO_EXCEDENTE_KW,
-            this.PAGADO});
-            this.RecibosDTGWN.Location = new System.Drawing.Point(9, 23);
-            this.RecibosDTGWN.Margin = new System.Windows.Forms.Padding(4);
-            this.RecibosDTGWN.Name = "RecibosDTGWN";
-            this.RecibosDTGWN.ReadOnly = true;
-            this.RecibosDTGWN.RowHeadersWidth = 51;
-            this.RecibosDTGWN.Size = new System.Drawing.Size(905, 537);
-            this.RecibosDTGWN.TabIndex = 4;
-            // 
-            // NUM_MEDIDOR
-            // 
-            this.NUM_MEDIDOR.DataPropertyName = "NUM_MEDIDOR";
-            this.NUM_MEDIDOR.HeaderText = "Numero de medidor";
-            this.NUM_MEDIDOR.MinimumWidth = 6;
-            this.NUM_MEDIDOR.Name = "NUM_MEDIDOR";
-            this.NUM_MEDIDOR.ReadOnly = true;
-            this.NUM_MEDIDOR.Width = 125;
-            // 
-            // YEAR_RCB
-            // 
-            this.YEAR_RCB.DataPropertyName = "YEAR";
-            this.YEAR_RCB.HeaderText = "Año";
-            this.YEAR_RCB.MinimumWidth = 6;
-            this.YEAR_RCB.Name = "YEAR_RCB";
-            this.YEAR_RCB.ReadOnly = true;
-            this.YEAR_RCB.Width = 125;
-            // 
-            // MONTH_RCB
-            // 
-            this.MONTH_RCB.DataPropertyName = "MONTH";
-            this.MONTH_RCB.HeaderText = "Mes";
-            this.MONTH_RCB.MinimumWidth = 6;
-            this.MONTH_RCB.Name = "MONTH_RCB";
-            this.MONTH_RCB.ReadOnly = true;
-            this.MONTH_RCB.Width = 125;
-            // 
-            // KW_BASICO_RCB
-            // 
-            this.KW_BASICO_RCB.DataPropertyName = "KW_BASICO";
-            this.KW_BASICO_RCB.HeaderText = "Consumo basico";
-            this.KW_BASICO_RCB.MinimumWidth = 6;
-            this.KW_BASICO_RCB.Name = "KW_BASICO_RCB";
-            this.KW_BASICO_RCB.ReadOnly = true;
-            this.KW_BASICO_RCB.Width = 125;
-            // 
-            // KW_INTERMEDIO_RCB
-            // 
-            this.KW_INTERMEDIO_RCB.DataPropertyName = "KW_INTERMEDIO";
-            this.KW_INTERMEDIO_RCB.HeaderText = "Consumo intermedio";
-            this.KW_INTERMEDIO_RCB.MinimumWidth = 6;
-            this.KW_INTERMEDIO_RCB.Name = "KW_INTERMEDIO_RCB";
-            this.KW_INTERMEDIO_RCB.ReadOnly = true;
-            this.KW_INTERMEDIO_RCB.Width = 125;
-            // 
-            // KW_EXCEDENTE_RCB
-            // 
-            this.KW_EXCEDENTE_RCB.DataPropertyName = "KW_EXCEDENTE";
-            this.KW_EXCEDENTE_RCB.HeaderText = "Consumo excedente";
-            this.KW_EXCEDENTE_RCB.MinimumWidth = 6;
-            this.KW_EXCEDENTE_RCB.Name = "KW_EXCEDENTE_RCB";
-            this.KW_EXCEDENTE_RCB.ReadOnly = true;
-            this.KW_EXCEDENTE_RCB.Width = 125;
-            // 
-            // PAGO_BASICO
-            // 
-            this.PAGO_BASICO.DataPropertyName = "PAGAR_BASICO";
-            this.PAGO_BASICO.HeaderText = "Pago basico";
-            this.PAGO_BASICO.MinimumWidth = 6;
-            this.PAGO_BASICO.Name = "PAGO_BASICO";
-            this.PAGO_BASICO.ReadOnly = true;
-            this.PAGO_BASICO.Width = 125;
-            // 
-            // PAGO_INTERMEDIO_KW
-            // 
-            this.PAGO_INTERMEDIO_KW.DataPropertyName = "PAGAR_INTERMEDIO";
-            this.PAGO_INTERMEDIO_KW.HeaderText = "Pago intermedio";
-            this.PAGO_INTERMEDIO_KW.MinimumWidth = 6;
-            this.PAGO_INTERMEDIO_KW.Name = "PAGO_INTERMEDIO_KW";
-            this.PAGO_INTERMEDIO_KW.ReadOnly = true;
-            this.PAGO_INTERMEDIO_KW.Width = 125;
-            // 
-            // PAGO_EXCEDENTE_KW
-            // 
-            this.PAGO_EXCEDENTE_KW.DataPropertyName = "PAGAR_EXCEDENTE";
-            this.PAGO_EXCEDENTE_KW.HeaderText = "Pago excedente";
-            this.PAGO_EXCEDENTE_KW.MinimumWidth = 6;
-            this.PAGO_EXCEDENTE_KW.Name = "PAGO_EXCEDENTE_KW";
-            this.PAGO_EXCEDENTE_KW.ReadOnly = true;
-            this.PAGO_EXCEDENTE_KW.Width = 125;
-            // 
-            // PAGADO
-            // 
-            this.PAGADO.DataPropertyName = "PAGADO";
-            this.PAGADO.HeaderText = "Estatus de pago";
-            this.PAGADO.MinimumWidth = 6;
-            this.PAGADO.Name = "PAGADO";
-            this.PAGADO.ReadOnly = true;
-            this.PAGADO.Width = 125;
-            // 
-            // medidor_pdf
-            // 
-            this.medidor_pdf.FormattingEnabled = true;
-            this.medidor_pdf.Location = new System.Drawing.Point(184, 34);
-            this.medidor_pdf.Name = "medidor_pdf";
-            this.medidor_pdf.Size = new System.Drawing.Size(103, 24);
-            this.medidor_pdf.TabIndex = 35;
-            // 
-            // medidor_wn
-            // 
-            this.medidor_wn.FormattingEnabled = true;
-            this.medidor_wn.Location = new System.Drawing.Point(161, 26);
-            this.medidor_wn.Name = "medidor_wn";
-            this.medidor_wn.Size = new System.Drawing.Size(100, 24);
-            this.medidor_wn.TabIndex = 11;
-            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1338,6 +1339,7 @@ namespace AAVD.Forms
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecibosDTG_WN)).EndInit();
@@ -1352,7 +1354,6 @@ namespace AAVD.Forms
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).EndInit();
             this.ResumeLayout(false);
 
         }

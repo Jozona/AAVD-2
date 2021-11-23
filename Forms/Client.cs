@@ -160,19 +160,17 @@ namespace AAVD.Forms
                 {
                     foreach (var medidor in clienteActual.measurers) {
                         if (medidor.ToString().Equals(recibo.num_medidor.ToString())) {
-                            if (recibo.pagado.Equals("PAGADO")){
-                                MessageBox.Show("Este recibo ya fue pagado");
-                                return;
-                                encontrado = true;
+                            if (recibo.year.Equals(pagar_year.Text) && recibo.month.Equals(pagar_mes.Text))
+                            {
+                                if (recibo.pagado.Equals("PAGADO"))
+                                {
+                                    MessageBox.Show("Este recibo ya fue pagado");
+                                    return;
+                                }
                             }
                         }
                     }
                 }
-            }
-
-            if (!encontrado) {
-                MessageBox.Show("Servicio invalido");
-                return;
             }
 
             if (comboBox3.Text.Equals("")) {
@@ -594,6 +592,19 @@ namespace AAVD.Forms
                 return;
             }
 
+            bool consumoExiste = false;
+            List<Consumos> consumoValidacion = new List<Consumos>();
+            consumoValidacion = DatabaseManagement.getInstance().getConsumos();
+            foreach (var consumo in consumoValidacion) {
+                if (consumo.num_medidor.ToString().Equals(medidor_pdf.Text) && consumo.year.ToString().Equals(year_reciboPDF.Text) && consumo.month.ToString().Equals(month_reciboPDF.Text)) {
+                    consumoExiste = true;
+                }
+            }
+
+            if (!consumoExiste) {
+                MessageBox.Show("No hay ningun consumo en esa fecha");
+                return;
+            }
 
             //Checa si el medidor tiene consumos
             bool hayConsumos = false;
@@ -886,6 +897,48 @@ namespace AAVD.Forms
                 return;
             }
 
+            bool consumoExiste = false;
+            List<Consumos> consumoValidacion = new List<Consumos>();
+            consumoValidacion = DatabaseManagement.getInstance().getConsumos();
+            foreach (var consumo in consumoValidacion)
+            {
+                if (consumo.num_medidor.ToString().Equals(medidor_wn.Text) && consumo.year.ToString().Equals(recibo_year.Text) && consumo.month.ToString().Equals(recibo_mes.Text))
+                {
+                    consumoExiste = true;
+                }
+            }
+
+            if (!consumoExiste)
+            {
+                MessageBox.Show("No hay ningun consumo en esa fecha");
+                return;
+            }
+
+            double adeudo = 0;
+            List<Recibos> recibosAnteriores = new List<Recibos>();
+            recibosAnteriores = DatabaseManagement.getInstance().getRecibos();
+            List<Recibos> recibosActual = new List<Recibos>();
+            recibosActual = DatabaseManagement.getInstance().getReciboEspecifico(medidor_wn.Text, recibo_year.Text, recibo_mes.Text);
+            foreach (var recibo2 in recibosAnteriores) {
+                foreach (var reciboActual in recibosActual) {
+                    if (recibo2.num_medidor.ToString().Equals(reciboActual.num_medidor.ToString())) {
+                        DateTime reciboAnteriorFecha = new DateTime(int.Parse(recibo2.year), int.Parse(recibo2.month), 3);
+                        DateTime reciboActualFecha = new DateTime(int.Parse(reciboActual.year), int.Parse(reciboActual.month), 3);
+                        int comparacion = DateTime.Compare(reciboAnteriorFecha, reciboActualFecha);
+                        if (comparacion < 0)
+                        {
+                            if (recibo2.pagado.Equals("SIN PAGAR"))
+                            {
+                                adeudo = recibo2.pagar_total_iva;
+                            }
+                            else if (recibo2.pagado.Equals("PAGADO"))
+                            {
+                                adeudo = 0;
+                            }
+                        }
+                    }
+                }
+            }
 
             List<Recibos> recibo = new List<Recibos>();
             recibo = DatabaseManagement.getInstance().getReciboEspecifico(medidor_wn.Text, recibo_year.Text, recibo_mes.Text);
@@ -894,14 +947,14 @@ namespace AAVD.Forms
                 recibo_kwBasicos.Text = reciboNode.kw_basico.ToString();
                 recibo_kwIntermedios.Text = reciboNode.kw_intermedio.ToString();
                 recibo_kwExcedentes.Text = reciboNode.kw_excedente.ToString();
-                recibos_kwTotales.Text = (reciboNode.kw_basico + reciboNode.kw_intermedio + reciboNode.kw_excedente).ToString();
+                recibos_kwTotales.Text = (reciboNode.kw_basico + reciboNode.kw_intermedio + reciboNode.kw_excedente ).ToString();
                 double tBasico = Math.Round(reciboNode.pagar_basico, 4);
                 tx_totalBasico.Text = tBasico.ToString();
                 double tIntermedio = Math.Round(reciboNode.pagar_intermedio, 4);
                 tx_totalIntermedio.Text = tIntermedio.ToString();
                 double tExedente = Math.Round(reciboNode.pagar_excedente, 4);
                 tx_totalExcedente.Text = tExedente.ToString();
-                double total = Math.Round(reciboNode.pagar_total_iva, 4);
+                double total = Math.Round(reciboNode.pagar_total_iva + adeudo, 4);
                 tx_totalFinal.Text = total.ToString();
             }
         }
@@ -945,5 +998,75 @@ namespace AAVD.Forms
             }
             RecibosDTGWN.DataSource = rcbDTG;
         }
+
+        private void Generar_pdf_consumo_Click(object sender, EventArgs e)
+        {
+            string folderPath = "";
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog1.SelectedPath;
+            }
+
+            String pdfName = folderPath + "\\ReporteConsumos.csv";
+            if (folderPath.Equals(""))
+            {
+                return;
+            }
+            writeCSV(ConsumoHistoriaDtg_WN, pdfName);
+            MessageBox.Show("Csv generado");
+        }
+
+        public void writeCSV(DataGridView gridIn, string outputFile)
+        {
+            //test to see if the DataGridView has any rows
+            if (gridIn.RowCount > 0)
+            {
+                string value = "";
+                DataGridViewRow dr = new DataGridViewRow();
+                StreamWriter swOut = new StreamWriter(outputFile);
+
+                //write header rows to csv
+                for (int i = 0; i <= gridIn.Columns.Count - 1; i++)
+                {
+                    if (i > 0)
+                    {
+                        swOut.Write(",");
+                    }
+                    swOut.Write(gridIn.Columns[i].HeaderText);
+                }
+
+                swOut.WriteLine();
+
+                //write DataGridView rows to csv
+                for (int j = 0; j <= gridIn.Rows.Count - 1; j++)
+                {
+                    if (j > 0)
+                    {
+                        swOut.WriteLine();
+                    }
+
+                    dr = gridIn.Rows[j];
+
+                    for (int i = 0; i <= gridIn.Columns.Count - 1; i++)
+                    {
+                        if (i > 0)
+                        {
+                            swOut.Write(",");
+                        }
+
+                        value = dr.Cells[i].Value.ToString();
+                        //replace comma's with spaces
+                        value = value.Replace(',', ' ');
+                        //replace embedded newlines with spaces
+                        value = value.Replace(Environment.NewLine, " ");
+
+                        swOut.Write(value);
+                    }
+                }
+                swOut.Close();
+
+            }
+        } 
     }
 }
