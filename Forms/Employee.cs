@@ -1230,24 +1230,278 @@ namespace AAVD.Forms
         //Se cambia el a;o en el reporte de consumo historico
         private void dtpConsumoH_year_ValueChanged(object sender, EventArgs e)
         {
+            List<Contratos> contracts = new List<Contratos>();
+            contracts = DatabaseManagement.getInstance().GetContratos();
+            double medidorServicio = 0;
+
+            List<Recibos> recibos = new List<Recibos>();
+            recibos = DatabaseManagement.getInstance().getRecibos();
+
             List<Consumos> consumos = new List<Consumos>();
             consumos = DatabaseManagement.getInstance().getConsumos();
 
             List<Consumos> csmDTG = new List<Consumos>();
             foreach (var consumo in consumos)
             {
+                foreach (var contract in contracts)
+                {
+                    if (contract.num_medidor.ToString().Equals(consumo.num_medidor.ToString()))
+                    {
+                        medidorServicio = contract.num_servicio;
+                        consumo.num_servicio = medidorServicio;
+                    }
+                }
+
                 if (dtpConsumoH_year.Text.Equals(consumo.year)){
                     Consumos consumoDTG = new Consumos();
                     consumoDTG.num_medidor = consumo.num_medidor;
                     consumoDTG.consumo = consumo.consumo;
                     consumoDTG.month = consumo.month;
+                    consumoDTG.num_servicio = consumo.num_servicio;
                     consumoDTG.year = consumo.year;
+
                     consumoDTG.kw_basico = 100;
+                    foreach (var contract in contracts)
+                    {
+                        if (contract.num_medidor == consumo.num_medidor)
+                        {
+                            consumo.num_servicio = (int)contract.num_servicio;
+                            consumoDTG.num_servicio = consumo.num_servicio;
+                        }
+                    }
+
+                    foreach (var recibo in recibos) {
+                        if (recibo.year.Equals(consumo.year) && recibo.month.Equals(consumo.month) && recibo.num_medidor.ToString().Equals(consumo.num_medidor.ToString())) {
+                            if (recibo.pagado.Equals("SIN PAGAR")){
+                                consumo.pendiente_pago = recibo.pagar_total_iva;
+                                consumoDTG.pendiente_pago = Math.Round(consumo.pendiente_pago,4);
+                            }
+                        }
+                    }
+
                     csmDTG.Add(consumo);
                 }
 
             }
+            
             consumoHistorico_EMPGTD.DataSource = csmDTG;
+            consumoHistorico_EMPGTD.Columns[4].Visible = false;
+            consumoHistorico_EMPGTD.Columns[5].Visible = false;
+            consumoHistorico_EMPGTD.Columns[6].Visible = false;
+            consumoHistorico_EMPGTD.Columns[7].Visible = false;
+            consumoHistorico_EMPGTD.Columns[8].Visible = false;
         }
+
+        private void nudConsumoH_medidor_ValueChanged(object sender, EventArgs e)
+        {
+            List<Contratos> contracts = new List<Contratos>();
+            contracts = DatabaseManagement.getInstance().GetContratos();
+            double medidorServicio = 0;
+
+            List<Recibos> recibos = new List<Recibos>();
+            recibos = DatabaseManagement.getInstance().getRecibos();
+
+            List<Consumos> consumos = new List<Consumos>();
+            consumos = DatabaseManagement.getInstance().getConsumos();
+
+            List<Consumos> csmDTG = new List<Consumos>();
+            foreach (var consumo in consumos)
+            {
+                
+
+                if (nudConsumoH_medidor.Text.Equals(consumo.num_medidor.ToString()))
+                {
+
+                    foreach (var contract in contracts)
+                    {
+                        if (contract.num_medidor.ToString().Equals(consumo.num_medidor.ToString()))
+                        {
+                            medidorServicio = contract.num_servicio;
+                            consumo.num_servicio = medidorServicio;
+                            break;
+                        }
+                    }
+
+
+                    Consumos consumoDTG = new Consumos();
+                    consumoDTG.num_medidor = consumo.num_medidor;
+                    consumoDTG.consumo = consumo.consumo;
+                    consumoDTG.month = consumo.month;
+                    consumoDTG.num_servicio = consumo.num_servicio;
+                    consumoDTG.year = consumo.year;
+
+                    consumoDTG.kw_basico = 100;
+                    foreach (var contract in contracts)
+                    {
+                        if (contract.num_medidor == consumo.num_medidor)
+                        {
+                            consumo.num_servicio = (int)contract.num_servicio;
+                            consumoDTG.num_servicio = consumo.num_servicio;
+                        }
+                    }
+
+                    foreach (var recibo in recibos)
+                    {
+                        if (recibo.year.Equals(consumo.year) && recibo.month.Equals(consumo.month) && recibo.num_medidor.ToString().Equals(consumo.num_medidor.ToString()))
+                        {
+                            if (recibo.pagado.Equals("SIN PAGAR"))
+                            {
+                                consumo.pendiente_pago = recibo.pagar_total_iva;
+                                consumoDTG.pendiente_pago = Math.Round(consumo.pendiente_pago, 4);
+                            }
+                        }
+                    }
+
+                    csmDTG.Add(consumo);
+                }
+
+            }
+
+            consumoHistorico_EMPGTD.DataSource = csmDTG;
+            consumoHistorico_EMPGTD.Columns[4].Visible = false;
+            consumoHistorico_EMPGTD.Columns[5].Visible = false;
+            consumoHistorico_EMPGTD.Columns[6].Visible = false;
+            consumoHistorico_EMPGTD.Columns[7].Visible = false;
+            consumoHistorico_EMPGTD.Columns[8].Visible = false;
+        }
+
+        private void nudConsumoH_servcio_ValueChanged(object sender, EventArgs e)
+        {
+            List<Contratos> contracts = new List<Contratos>();
+            contracts = DatabaseManagement.getInstance().GetContratos();
+            double medidorServicio = 0;
+            
+            List<Recibos> recibos = new List<Recibos>();
+            recibos = DatabaseManagement.getInstance().getRecibos();
+
+            List<Consumos> consumos = new List<Consumos>();
+            consumos = DatabaseManagement.getInstance().getConsumos();
+
+            List<Consumos> csmDTG = new List<Consumos>();
+            foreach (var consumo in consumos)
+            {
+                foreach (var contract in contracts)
+                {
+                    if (contract.num_medidor.ToString().Equals(consumo.num_medidor.ToString())) {
+                        medidorServicio = contract.num_servicio;
+                        consumo.num_servicio = medidorServicio;
+                    }
+                }
+
+
+                if (nudConsumoH_servcio.Value.ToString().Equals(consumo.num_servicio.ToString()))
+                {
+                    Consumos consumoDTG = new Consumos();
+                    consumoDTG.num_medidor = consumo.num_medidor;
+                    consumoDTG.consumo = consumo.consumo;
+                    consumoDTG.month = consumo.month;
+                    consumoDTG.year = consumo.year;
+                    consumoDTG.num_servicio = consumo.num_servicio;
+                    consumoDTG.kw_basico = 100;
+                    foreach (var contract in contracts)
+                    {
+                        if (contract.num_medidor == consumo.num_medidor)
+                        {
+                            consumo.num_servicio = (int)contract.num_servicio;
+                            consumoDTG.num_servicio = consumo.num_servicio;
+                        }
+                    }
+
+                    foreach (var recibo in recibos)
+                    {
+                        if (recibo.year.Equals(consumo.year) && recibo.month.Equals(consumo.month) && recibo.num_medidor.ToString().Equals(consumo.num_medidor.ToString()))
+                        {
+                            if (recibo.pagado.Equals("SIN PAGAR"))
+                            {
+                                consumo.pendiente_pago = recibo.pagar_total_iva;
+                                consumoDTG.pendiente_pago = Math.Round(consumo.pendiente_pago, 4);
+                            }
+                        }
+                    }
+
+                    csmDTG.Add(consumo);
+                }
+
+            }
+
+            consumoHistorico_EMPGTD.DataSource = csmDTG;
+            consumoHistorico_EMPGTD.Columns[4].Visible = false;
+            consumoHistorico_EMPGTD.Columns[5].Visible = false;
+            consumoHistorico_EMPGTD.Columns[6].Visible = false;
+            consumoHistorico_EMPGTD.Columns[7].Visible = false;
+            consumoHistorico_EMPGTD.Columns[8].Visible = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string folderPath = "";
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog1.SelectedPath;
+            }
+
+            String pdfName = folderPath + "\\ReporteConsumosEmployee.csv";
+            if (folderPath.Equals(""))
+            {
+                return;
+            }
+            writeCSV(consumoHistorico_EMPGTD, pdfName);
+            MessageBox.Show("Csv generado");
+        }
+
+
+        public void writeCSV(DataGridView gridIn, string outputFile)
+        {
+            //test to see if the DataGridView has any rows
+            if (gridIn.RowCount > 0)
+            {
+                string value = "";
+                DataGridViewRow dr = new DataGridViewRow();
+                StreamWriter swOut = new StreamWriter(outputFile);
+
+                //write header rows to csv
+                for (int i = 0; i <= gridIn.Columns.Count - 1; i++)
+                {
+                    if (i > 0)
+                    {
+                        swOut.Write(",");
+                    }
+                    swOut.Write(gridIn.Columns[i].HeaderText);
+                }
+
+                swOut.WriteLine();
+
+                //write DataGridView rows to csv
+                for (int j = 0; j <= gridIn.Rows.Count - 1; j++)
+                {
+                    if (j > 0)
+                    {
+                        swOut.WriteLine();
+                    }
+
+                    dr = gridIn.Rows[j];
+
+                    for (int i = 0; i <= gridIn.Columns.Count - 1; i++)
+                    {
+                        if (i > 0)
+                        {
+                            swOut.Write(",");
+                        }
+
+                        value = dr.Cells[i].Value.ToString();
+                        //replace comma's with spaces
+                        value = value.Replace(',', ' ');
+                        //replace embedded newlines with spaces
+                        value = value.Replace(Environment.NewLine, " ");
+
+                        swOut.Write(value);
+                    }
+                }
+                swOut.Close();
+
+            }
+        }
+
     }
 }

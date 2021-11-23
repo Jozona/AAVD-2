@@ -253,6 +253,7 @@ namespace AAVD.Forms
             this.label80 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1919,6 +1920,7 @@ namespace AAVD.Forms
             // 
             // tabPage13
             // 
+            this.tabPage13.Controls.Add(this.button8);
             this.tabPage13.Controls.Add(this.label82);
             this.tabPage13.Controls.Add(this.label81);
             this.tabPage13.Controls.Add(this.label80);
@@ -2615,6 +2617,7 @@ namespace AAVD.Forms
             0,
             0,
             0});
+            this.nudConsumoH_medidor.ValueChanged += new System.EventHandler(this.nudConsumoH_medidor_ValueChanged);
             // 
             // nudConsumoH_servcio
             // 
@@ -2637,6 +2640,7 @@ namespace AAVD.Forms
             0,
             0,
             0});
+            this.nudConsumoH_servcio.ValueChanged += new System.EventHandler(this.nudConsumoH_servcio_ValueChanged);
             // 
             // dtpConsumoH_year
             // 
@@ -2672,6 +2676,16 @@ namespace AAVD.Forms
             this.label82.Size = new System.Drawing.Size(58, 17);
             this.label82.TabIndex = 7;
             this.label82.Text = "Servicio";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(821, 580);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Generar reporte";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Employee
             // 
@@ -2993,5 +3007,6 @@ namespace AAVD.Forms
         private System.Windows.Forms.NumericUpDown nudConsumoH_medidor;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.DataGridView consumoHistorico_EMPGTD;
+        private System.Windows.Forms.Button button8;
     }
 }
