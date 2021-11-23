@@ -1,0 +1,348 @@
+--Creamos la keyspace y le asignamos la estrategia de replicacion junto con cuantos nodos quere
+CREATE KEYSPACE AAVD_FCFM WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1};
+--use AAVD_FCFM se establece para aclararle a devCENTER cual vamos a utilizar.
+
+use AAVD_FCFM;
+
+--DATOS UTILIZADOS EN EL PROYECTO
+
+-----Codigo de la tabla de TODOS los usuarios----------
+CREATE TABLE IF NOT EXISTS USERS_LOGIN(
+	USER_ID uuid, 
+	USER_NAME VARCHAR,
+	PASSWORD VARCHAR,
+	USER_TYPE smallint, 
+	ACTIVE boolean, 
+	PRIMARY KEY((USER_NAME, PASSWORD))
+);
+
+CREATE TABLE IF NOT EXISTS USERS_ACTIVE(
+	USER_ID uuid, 
+	USER_NAME VARCHAR,
+	PASSWORD VARCHAR,
+	USER_TYPE smallint, 
+	ACTIVE boolean, 
+	PRIMARY KEY(USER_NAME)
+);
+
+UPDATE USERS_ACTIVE SET ACTIVE = true WHERE USER_NAME = 'empleado'
+IF EXISTS;
+
+SELECT * 
+FROM USERS_LOGIN 
+WHERE USER_NAME = 'admin' AND password ='pass123';
+
+--Agregamos el administrador
+INSERT INTO USERS_LOGIN(USER_NAME, PASSWORD, USER_TYPE, ACTIVE, USER_ID)
+VALUES('admin','pass123', 0, true, uuid());
+
+INSERT INTO USERS_LOGIN(USER_NAME, PASSWORD, USER_TYPE, ACTIVE, USER_ID)
+VALUES('empleado','12', 1, true, uuid());
+
+--Esta query va a ser modificada dentro del codigo para utilizar el mismo ID de usuario.
+INSERT INTO USERS_ACTIVE(USER_NAME, PASSWORD, USER_TYPE, ACTIVE, USER_ID)
+VALUES('empleado','12', 1, true, bdfe70e1-632e-4c33-aa44-74cc798f01e5);
+
+SELECT * 
+FROM USERS_LOGIN;
+
+--Tabla de los trabajadores
+CREATE TABLE IF NOT EXISTS EMPLOYEES(
+	EMPLOYEE_ID UUID,
+	USER_ID uuid,
+	USER varchar,
+	PASSWORD VARCHAR,
+	NAME VARCHAR,
+	LAST_NAME VARCHAR,
+	MOTHER_LAST_NAME VARCHAR,
+	CLAVES_UNICAS map<varchar,varchar>,
+	CREATION_DATE timeuuid,
+	DATE_OF_BIRTH timestamp,
+	MODIFICATION_DATE list<date>,
+	PRIMARY KEY(EMPLOYEE_ID)	
+);
+
+--Ingresar empleados(Ingresamos el mismo ID que el del usuario creado)
+INSERT INTO EMPLOYEES (USER_ID,USER, PASSWORD, NAME, LAST_NAME, 
+MOTHER_LAST_NAME, CLAVES_UNICAS, CREATION_DATE,
+DATE_OF_BIRTH, MODIFICATION_DATE, EMPLOYEE_ID)
+VALUES(cd5ae824-9cf8-432d-a628-28cd2b6cdad5, 'empleado', 'yes', 'Jose', 
+'Jose', 'Jojo', {'CURP':'ELCURP', 'RFC':'ELRFC'},
+now(), totimestamp(todate(now())), ['2020-01-01', todate(now())] ,uuid());
+
+SELECT *
+FROM EMPLOYEES;
+
+
+--Elimnar a los empeados con el usuario, que deberia ser unico.
+DELETE FROM EMPLOYEES
+WHERE EMPLOYEE_ID=cad34baa-17f1-4305-bc11-a46669365dd7;
+
+--Si modificamos un dato, utilizamos el user como la llave.
+UPDATE EMPLOYEES SET NAME = 'JORGE' WHERE EMPLOYEE_ID = cad34baa-17f1-4305-bc11-a46669365dd7
+IF EXISTS;
+
+UPDATE EMPLOYEES SET CLAVES_UNICAS = {'CURP' : 'SI', 'RFC' : 'NO'} WHERE EMPLOYEE_ID = cad34baa-17f1-4305-bc11-a46669365dd7
+IF EXISTS;
+
+DROP TABLE EMPLOYEES;
+
+
+----------------
+
+
+
+----Tabla de clientes------
+CREATE TABLE IF NOT EXISTS CLIENTS(
+	CLIENT_ID uuid,
+	USER_ID uuid,
+	USER varchar,
+	PASSWORD varchar,
+	NAME varchar,
+	LAST_NAME varchar,
+	MOTHER_LAST_NAME varchar,
+	CONTRACT_TYPE varchar,
+	CREATION_DATE timeuuid,
+	MODIFICATION_TIMES set<date>,
+	MONTHLY_PAYMENTS map<VARCHAR, double>,
+	CURP varchar,
+	EMAIL varchar,
+	GENDER varchar,
+	MEASURER int,
+	SERVICE_NUMBER int,
+	CONTRACTS MAP<uuid, varchar>,
+	AUTHOR uuid,
+	STREET varchar,
+	COLONY varchar,
+	CITY varchar,
+	STATE varchar,
+	DATE_OF_BIRTH timestamp,
+	PRIMARY KEY(CLIENT_ID)
+);
+
+CREATE TYPE IF NOT EXISTS AAVD_FCFM.ADDRESS(
+	STREET varchar,
+	COLONY varchar,
+	POSTAL_CODE int,
+	CITY varchar,
+	STATE varchar
+);
+
+--Insertar un cliente
+BEGIN BATCH
+INSERT INTO CLIENTS(CLIENT_ID, USER_ID, CONTRACT_TYPE, CREATION_DATE, 
+MODIFICATION_TIMES, MONTHLY_PAYMENTS, EMAIL, GENDER, 
+MEASURER, SERVICE_NUMBER, CONTRACTS, ACCESS,CURP, USER, PASSWORD) 
+VALUES(uuid(), 'abc', 'industrial', now() ,{toDate(now()), '2015-03-03'}, 
+[14.2323,112.323] ,'homer@gmail.com','female', 12345, 5432, 
+{
+	ca872c3d-94a6-44d7-9781-c7fbd94d3a89:'Industrial', 
+	ca872c3d-94a6-44d7-9781-c7fbd94d3a89:'Industrial'
+},
+{
+	street:'Pera', 
+	colony:'Esper', 
+	postal_code:23444, 
+	city:'Barcelona', 
+	state:'Sonora'
+}, 
+'ABCD', 'empleado', 'pass123');
+
+APPLY BATCH;
+
+--Actualizamos la informacion del cliente con la llave de usuario
+UPDATE CLIENTS SET GENDER = 'MALE' WHERE USER ='empleado' 
+IF EXISTS;
+
+SELECT * 
+FROM CLIENTS;
+
+--Borrar
+BEGIN BATCH
+DELETE FROM CLIENTS WHERE USER ='empleado';
+APPLY BATCH;
+
+--Limpiar
+TRUNCATE CLIENTS;
+
+DROP TABLE CLIENTS;
+
+CREATE TYPE IF NOT EXISTS AAVD_FCFM.FULL_NAME(
+	NAME VARCHAR,
+	LAST_NAME VARCHAR,
+	MOTHERS_LAST_NAME VARCHAR
+);
+
+--------Recibos
+
+CREATE TABLE IF NOT EXISTS RECIBOS(
+	USER_ID UUID,
+	NUM_SERVICIO int,
+	NUM_MEDIDOR int,
+	NUM_CONTRATO int,
+	FULL_NAME list<varchar>,
+	ACCESS FROZEN <ADDRESS>,
+	INICIO_FACTURACION date,
+	FINAL_FACTURACION date,
+	TOTAL_PAGAR double,
+	NIVEL_TARIFA smallint,
+	SUBTOTAL double,
+	CANTIDAD_LETRA varchar,
+	FORMA_DE_PAGO varchar,
+	PRIMARY KEY (USER_ID, NUM_SERVICIO, NUM_MEDIDOR)
+);
+--EL ID del usuario actua como la partition key y el numero de servicio y medidor 
+--como cluster keys para mantener un orden en la informacion.
+
+INSERT INTO 
+RECIBOS(USER_ID, NUM_SERVICIO,NUM_MEDIDOR, NUM_CONTRATO, 
+FULL_NAME, INICIO_FACTURACION, FINAL_FACTURACION, TOTAL_PAGAR, 
+NIVEL_TARIFA, SUBTOTAL, CANTIDAD_LETRA, ACCESS, FORMA_DE_PAGO) 
+VALUES(uuid(), 123, 321, 231, ['Larry' , 'Perez', 'Ortega'], 
+'2020-01-01', '2020-06-06',12.33, 3, 22.443, 'Ventidos', 
+{
+	street:'Pera', 
+	colony:'Esper', 
+	postal_code:23444, 
+	city:'Barcelona', 
+	state:'Sonora'
+}, 
+'Visa');
+
+SELECT * 
+FROM RECIBOS;
+
+SELECT * 
+FROM RECIBOS
+WHERE USER_ID = ca872c3d-94a6-44d7-9781-c7fbd94d3a89;
+
+DROP TABLE RECIBOS;
+
+
+CREATE TYPE IF NOT EXISTS AAVD_FCFM.DATOS_IDENTIFICACION(
+	NAME varchar,
+	LAST_NAME varchar,
+	MOTHER_LAST_NAME varchar
+);
+
+DROP TYPE DATOS_IDENTIFICACION;
+
+--Tarifas
+CREATE TABLE IF NOT EXISTS TARIFAS(
+	CLIENT_ID uuid,
+	ID_TARIFA uuid,
+	FECHA_SUBIDA date,
+	YEAR int,
+	MES int,
+	TARIFA_BASICA double,
+	TARIFA_INTERMEDIA double,
+	TARIFA_EXCEDENTE double,
+	PRIMARY KEY(ID_TARIFA)
+);
+
+
+SELECT * 
+FROM TARIFAS 
+WHERE ID_TARIFA =ca872c3d-94a6-44d7-9781-c7fbd94d3a89;
+
+INSERT INTO TARIFAS(CLIENT_ID, ID_TARIFA, YEAR, MES, TARIFA_BASICA, 
+TARIFA_INTERMEDIA, TARIFA_EXCEDENTE, FECHA_SUBIDA)
+VALUES(ca872c3d-94a6-44d7-9781-c7fbd94d3a89, uuid(), 
+2020, 01, 13.33, 20.111, 40.11, '2020-01-01');
+
+--Consumos
+CREATE TABLE IF NOT EXISTS CONSUMOS(
+	CLIENT_ID uuid,
+	NUMERO_MEDIDOR int,
+	YEAR int,
+	KW_BASICA double,
+	KW_INTERMEDIA double,
+	KW_EXCEDENTE double,
+	PRIMARY KEY(CLIENT_ID, NUMERO_MEDIDOR)
+);
+--El cliente se puede repetir mientras el numero de medidor no.
+-- Ya que puede tener mas de un contrato.
+--Se busca con el id del cliente
+
+INSERT INTO CONSUMOS(CLIENT_ID, NUMERO_MEDIDOR, YEAR, KW_BASICA, KW_INTERMEDIA, KW_EXCEDENTE)
+VALUES(ca872c3d-94a6-44d7-9781-c7fbd94d3a89, 123, 2020, 3334, 44455, 123323);
+
+SELECT * 
+FROM CONSUMOS;
+
+SELECT *
+FROM CONSUMOS
+WHERE CLIENT_ID=ca872c3d-94a6-44d7-9781-c7fbd94d3a89;
+
+
+--Reportes
+CREATE TABLE IF NOT EXISTS REPORTES_GENERALES(
+	CLIENT_ID uuid,
+	NUM_SERVICIO int,
+	YEAR int,
+	MES int,
+	TIPO_DE_SERVICIO varchar,
+	TOTAL_PAGADO double,
+	TOTAL_PENDIENTE double,
+	PRIMARY KEY(CLIENT_ID)
+);
+
+INSERT INTO REPORTES_GENERALES(CLIENT_ID, NUM_SERVICIO, YEAR, MES, 
+TIPO_DE_SERVICIO, TOTAL_PAGADO, TOTAL_PENDIENTE)
+VALUES(ca872c3d-94a6-44d7-9781-c7fbd94d3a89, 123, 2020, 01, 
+'Industrial', 12300.12, 1244.01);
+
+SELECT * 
+FROM REPORTES_GENERALES;
+
+SELECT *
+FROM REPORTES_GENERALES
+WHERE CLIENT_ID=ca872c3d-94a6-44d7-9781-c7fbd94d3a89;
+
+CREATE TABLE IF NOT EXISTS CONSUMO_HISTORICO(
+	CLIENT_ID uuid,
+	PERIODO_FACTURACION date,
+	CONSUMO_DE_KW double,
+	IMPORTE double,
+	PAGO double,
+	PENDIENTE_DE_PAGO double,
+	PRIMARY KEY(CLIENT_ID)
+);
+
+INSERT INTO CONSUMO_HISTORICO(CLIENT_ID, PERIODO_FACTURACION, 
+CONSUMO_DE_KW, IMPORTE, PAGO, PENDIENTE_DE_PAGO)
+VALUES(ca872c3d-94a6-44d7-9781-c7fbd94d3a89, '2020-01-01', 
+33223, 1222.33, 34343.12, 1111.222);
+
+SELECT *
+FROM CONSUMO_HISTORICO;
+
+SELECT *
+FROM CONSUMO_HISTORICO
+WHERE CLIENT_ID = ca872c3d-94a6-44d7-9781-c7fbd94d3a89;
+
+	
+CREATE TABLE IF NOT EXISTS CONTRATOS(
+	ID_CONTRATO uuid,
+	ID_CLIENTE uuid,
+	TIPO_CONTRATO varchar,
+	INICIO_CONTRATO date,
+	INFORMACION_CLIENTE list<varchar>,
+	PRIMARY KEY(ID_CLIENTE, ID_CONTRATO)
+);
+--Un cliente puede tener mas un contrato, 
+--pero un contrato no se debe repetir.
+--Contiene poquita informacion 
+--sobre el cliente en una list.
+
+DROP TABLE CONTRATOS;
+
+INSERT INTO CONTRATOS(ID_CONTRATO, ID_CLIENTE,
+TIPO_CONTRATO, INICIO_CONTRATO, INFORMACION_CLIENTE)
+VALUES (uuid(), ca872c3d-94a6-44d7-9781-c7fbd94d3a89, 
+'Industrial', '2015-01-01', ['Juan', 'Perez', 'Perez']);
+
+SELECT * 
+FROM CONTRATOS
+WHERE ID_CLIENTE  = ca872c3d-94a6-44d7-9781-c7fbd94d3a89 
+AND ID_CONTRATO =c5787138-55a7-490a-9f03-11051512cfd2;
