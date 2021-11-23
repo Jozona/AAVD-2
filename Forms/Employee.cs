@@ -450,6 +450,29 @@ namespace AAVD.Forms
         //Definir las tarifas
         private void btn_agregar_tarifa_Click(object sender, EventArgs e)
         {
+            if (eb_tipoTarifa.Text.Equals("")) {
+                MessageBox.Show("Ingresa una tarifa");
+                return;
+            }
+
+            if (eb_TarifaBasica.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa una tarifa");
+                return;
+            }
+            if (eb_TarifaIntermedia.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa una tarifa");
+                return;
+            }
+            if (eb_TarifaExcedente.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa una tarifa");
+                return;
+            }
+
+
+
             DatabaseManagement.getInstance().crearTarifa(eb_tipoTarifa.Text, eb_TarifaBasica.Text, eb_TarifaIntermedia.Text, eb_TarifaExcedente.Text);
             MessageBox.Show("Tarifa actualizada");
             updateDataGridTarifa();
@@ -876,6 +899,17 @@ namespace AAVD.Forms
         //Cargar un consumo
         private void btn_consumo_Click(object sender, EventArgs e)
         {
+            if (consumo_medidor.Text.Equals("")) {
+                MessageBox.Show("Ingresa un medidor");
+                return;
+            }
+
+            if (consumo_kw.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa un consumo");
+                return;
+            }
+
             //Checamos si ya existe un consumo para esos datos
             List<Consumos> consumos = new List<Consumos>();
             consumos = DatabaseManagement.getInstance().getConsumos();
@@ -999,6 +1033,14 @@ namespace AAVD.Forms
 
             }
             dataGridView1.DataSource = csmDTG;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+
         }
 
         //Carga masiva de consumos
@@ -1058,6 +1100,11 @@ namespace AAVD.Forms
         //Mostrar un recibo en la pantalla
         private void button7_Click_1(object sender, EventArgs e)
         {
+            if (tb_medidor.Text.Equals("")) {
+                MessageBox.Show("Ingresa un medidor");
+                return;
+            }
+
 
             string id_cliente = "";
             string tipo = "";
@@ -1526,5 +1573,40 @@ namespace AAVD.Forms
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string folderPath = "";
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog1.SelectedPath;
+            }
+
+            String pdfName = folderPath + "\\ReporteTarifasEmployee.csv";
+            if (folderPath.Equals(""))
+            {
+                return;
+            }
+            writeCSV(dataGridView2, pdfName);
+            MessageBox.Show("Csv generado");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string folderPath = "";
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog1.SelectedPath;
+            }
+
+            String pdfName = folderPath + "\\ReporteConsumosParaEmployee.csv";
+            if (folderPath.Equals(""))
+            {
+                return;
+            }
+            writeCSV(dataGridView1, pdfName);
+            MessageBox.Show("Csv generado");
+        }
     }
 }

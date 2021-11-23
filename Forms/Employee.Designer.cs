@@ -37,6 +37,7 @@ namespace AAVD.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.nud_Cliente = new System.Windows.Forms.NumericUpDown();
             this.label66 = new System.Windows.Forms.Label();
             this.groupbox = new System.Windows.Forms.GroupBox();
             this.c_respuesta = new System.Windows.Forms.TextBox();
@@ -50,6 +51,8 @@ namespace AAVD.Forms
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.nud_Servicio = new System.Windows.Forms.NumericUpDown();
+            this.nud_Medidor = new System.Windows.Forms.NumericUpDown();
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.c_contratoTipo = new System.Windows.Forms.ComboBox();
@@ -115,10 +118,6 @@ namespace AAVD.Forms
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.id_servicio = new System.Windows.Forms.TextBox();
             this.clientesDTGWN = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
@@ -130,6 +129,9 @@ namespace AAVD.Forms
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.nud_ClienteNC = new System.Windows.Forms.NumericUpDown();
+            this.nud_ServicioNC = new System.Windows.Forms.NumericUpDown();
+            this.nud_MedidorNC = new System.Windows.Forms.NumericUpDown();
             this.label68 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.contrato_Tipo = new System.Windows.Forms.ComboBox();
@@ -139,18 +141,10 @@ namespace AAVD.Forms
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
-            this.textBox16 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -181,6 +175,15 @@ namespace AAVD.Forms
             this.label55 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.dtpConsumoH_year = new System.Windows.Forms.DateTimePicker();
+            this.nudConsumoH_servcio = new System.Windows.Forms.NumericUpDown();
+            this.nudConsumoH_medidor = new System.Windows.Forms.NumericUpDown();
+            this.label79 = new System.Windows.Forms.Label();
+            this.consumoHistorico_EMPGTD = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.eb_user_recibo = new System.Windows.Forms.TextBox();
@@ -239,29 +242,17 @@ namespace AAVD.Forms
             this.COLONY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONTRACT_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nud_Medidor = new System.Windows.Forms.NumericUpDown();
-            this.nud_Servicio = new System.Windows.Forms.NumericUpDown();
-            this.nud_Cliente = new System.Windows.Forms.NumericUpDown();
-            this.nud_ClienteNC = new System.Windows.Forms.NumericUpDown();
-            this.nud_MedidorNC = new System.Windows.Forms.NumericUpDown();
-            this.nud_ServicioNC = new System.Windows.Forms.NumericUpDown();
-            this.consumoHistorico_EMPGTD = new System.Windows.Forms.DataGridView();
-            this.label79 = new System.Windows.Forms.Label();
-            this.nudConsumoH_medidor = new System.Windows.Forms.NumericUpDown();
-            this.nudConsumoH_servcio = new System.Windows.Forms.NumericUpDown();
-            this.dtpConsumoH_year = new System.Windows.Forms.DateTimePicker();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cliente)).BeginInit();
             this.groupbox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Servicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Medidor)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -275,6 +266,9 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ClientesBorrarDTG)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ClienteNC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ServicioNC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_MedidorNC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -289,6 +283,9 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConsumosDTG_WN)).BeginInit();
             this.tabPage13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_servcio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_medidor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consumoHistorico_EMPGTD)).BeginInit();
             this.tabPage11.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -297,15 +294,6 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Medidor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Servicio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Cliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_ClienteNC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_MedidorNC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_ServicioNC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consumoHistorico_EMPGTD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_medidor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_servcio)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -411,6 +399,18 @@ namespace AAVD.Forms
             this.groupBox10.TabIndex = 17;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Identificador";
+            // 
+            // nud_Cliente
+            // 
+            this.nud_Cliente.Location = new System.Drawing.Point(166, 41);
+            this.nud_Cliente.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_Cliente.Name = "nud_Cliente";
+            this.nud_Cliente.Size = new System.Drawing.Size(152, 22);
+            this.nud_Cliente.TabIndex = 18;
             // 
             // label66
             // 
@@ -552,6 +552,30 @@ namespace AAVD.Forms
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de contrato";
+            // 
+            // nud_Servicio
+            // 
+            this.nud_Servicio.Location = new System.Drawing.Point(153, 100);
+            this.nud_Servicio.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_Servicio.Name = "nud_Servicio";
+            this.nud_Servicio.Size = new System.Drawing.Size(120, 22);
+            this.nud_Servicio.TabIndex = 19;
+            // 
+            // nud_Medidor
+            // 
+            this.nud_Medidor.Location = new System.Drawing.Point(153, 62);
+            this.nud_Medidor.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_Medidor.Name = "nud_Medidor";
+            this.nud_Medidor.Size = new System.Drawing.Size(120, 22);
+            this.nud_Medidor.TabIndex = 18;
             // 
             // label65
             // 
@@ -836,10 +860,6 @@ namespace AAVD.Forms
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.groupBox8);
             this.tabPage3.Controls.Add(this.groupBox9);
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.btn_buscar);
-            this.tabPage3.Controls.Add(this.id_servicio);
             this.tabPage3.Controls.Add(this.clientesDTGWN);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1210,43 +1230,6 @@ namespace AAVD.Forms
             this.label43.TabIndex = 4;
             this.label43.Text = "CURP";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(77, 586);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 17);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "servicio";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(36, 569);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 17);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Numero de";
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Location = new System.Drawing.Point(281, 578);
-            this.btn_buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 4;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
-            // id_servicio
-            // 
-            this.id_servicio.Location = new System.Drawing.Point(141, 580);
-            this.id_servicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.id_servicio.Name = "id_servicio";
-            this.id_servicio.Size = new System.Drawing.Size(100, 22);
-            this.id_servicio.TabIndex = 3;
-            // 
             // clientesDTGWN
             // 
             this.clientesDTGWN.AllowUserToAddRows = false;
@@ -1388,6 +1371,42 @@ namespace AAVD.Forms
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Datos de contrato";
             // 
+            // nud_ClienteNC
+            // 
+            this.nud_ClienteNC.Location = new System.Drawing.Point(181, 34);
+            this.nud_ClienteNC.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_ClienteNC.Name = "nud_ClienteNC";
+            this.nud_ClienteNC.Size = new System.Drawing.Size(149, 22);
+            this.nud_ClienteNC.TabIndex = 11;
+            // 
+            // nud_ServicioNC
+            // 
+            this.nud_ServicioNC.Location = new System.Drawing.Point(181, 154);
+            this.nud_ServicioNC.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_ServicioNC.Name = "nud_ServicioNC";
+            this.nud_ServicioNC.Size = new System.Drawing.Size(149, 22);
+            this.nud_ServicioNC.TabIndex = 13;
+            // 
+            // nud_MedidorNC
+            // 
+            this.nud_MedidorNC.Location = new System.Drawing.Point(181, 113);
+            this.nud_MedidorNC.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_MedidorNC.Name = "nud_MedidorNC";
+            this.nud_MedidorNC.Size = new System.Drawing.Size(149, 22);
+            this.nud_MedidorNC.TabIndex = 12;
+            // 
             // label68
             // 
             this.label68.AutoSize = true;
@@ -1467,15 +1486,11 @@ namespace AAVD.Forms
             this.tabControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(765, 494);
+            this.tabControl2.Size = new System.Drawing.Size(945, 590);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.label26);
-            this.tabPage7.Controls.Add(this.label27);
-            this.tabPage7.Controls.Add(this.button12);
-            this.tabPage7.Controls.Add(this.textBox16);
             this.tabPage7.Controls.Add(this.button4);
             this.tabPage7.Controls.Add(this.button3);
             this.tabPage7.Controls.Add(this.dataGridView2);
@@ -1483,60 +1498,25 @@ namespace AAVD.Forms
             this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Size = new System.Drawing.Size(757, 465);
+            this.tabPage7.Size = new System.Drawing.Size(937, 561);
             this.tabPage7.TabIndex = 0;
             this.tabPage7.Text = "Tarifas";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(436, 410);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(56, 17);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "servicio";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(425, 393);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 17);
-            this.label27.TabIndex = 9;
-            this.label27.Text = "Numero de";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(659, 402);
-            this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 8;
-            this.button12.Text = "Buscar";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(519, 404);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 22);
-            this.textBox16.TabIndex = 7;
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(133, 393);
+            this.button4.Location = new System.Drawing.Point(557, 410);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 44);
             this.button4.TabIndex = 2;
-            this.button4.Text = "Generar PDF";
+            this.button4.Text = "Generar CSV";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(37, 393);
+            this.button3.Location = new System.Drawing.Point(359, 410);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 44);
@@ -1553,15 +1533,11 @@ namespace AAVD.Forms
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(745, 364);
+            this.dataGridView2.Size = new System.Drawing.Size(926, 364);
             this.dataGridView2.TabIndex = 0;
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.label28);
-            this.tabPage8.Controls.Add(this.label29);
-            this.tabPage8.Controls.Add(this.button13);
-            this.tabPage8.Controls.Add(this.textBox17);
             this.tabPage8.Controls.Add(this.button2);
             this.tabPage8.Controls.Add(this.button1);
             this.tabPage8.Controls.Add(this.dataGridView1);
@@ -1569,60 +1545,25 @@ namespace AAVD.Forms
             this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage8.Size = new System.Drawing.Size(757, 465);
+            this.tabPage8.Size = new System.Drawing.Size(937, 561);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Consumos";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(421, 407);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(56, 17);
-            this.label28.TabIndex = 10;
-            this.label28.Text = "servicio";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(411, 390);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(78, 17);
-            this.label29.TabIndex = 9;
-            this.label29.Text = "Numero de";
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(645, 400);
-            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 8;
-            this.button13.Text = "Buscar";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(505, 401);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 22);
-            this.textBox17.TabIndex = 7;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(149, 390);
+            this.button2.Location = new System.Drawing.Point(549, 432);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 46);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Generar PDF";
+            this.button2.Text = "Generar CSV";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 390);
+            this.button1.Location = new System.Drawing.Point(337, 432);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 46);
@@ -1639,7 +1580,7 @@ namespace AAVD.Forms
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(745, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(926, 358);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -1936,6 +1877,119 @@ namespace AAVD.Forms
             this.tabPage13.TabIndex = 11;
             this.tabPage13.Text = "Reporte historico";
             this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(821, 580);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Generar reporte";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(582, 581);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(58, 17);
+            this.label82.TabIndex = 7;
+            this.label82.Text = "Servicio";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(359, 581);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(59, 17);
+            this.label81.TabIndex = 6;
+            this.label81.Text = "Medidor";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(133, 581);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(33, 17);
+            this.label80.TabIndex = 5;
+            this.label80.Text = "Año";
+            // 
+            // dtpConsumoH_year
+            // 
+            this.dtpConsumoH_year.Location = new System.Drawing.Point(216, 581);
+            this.dtpConsumoH_year.Name = "dtpConsumoH_year";
+            this.dtpConsumoH_year.Size = new System.Drawing.Size(108, 22);
+            this.dtpConsumoH_year.TabIndex = 4;
+            this.dtpConsumoH_year.ValueChanged += new System.EventHandler(this.dtpConsumoH_year_ValueChanged);
+            // 
+            // nudConsumoH_servcio
+            // 
+            this.nudConsumoH_servcio.Location = new System.Drawing.Point(659, 581);
+            this.nudConsumoH_servcio.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudConsumoH_servcio.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudConsumoH_servcio.Name = "nudConsumoH_servcio";
+            this.nudConsumoH_servcio.Size = new System.Drawing.Size(120, 22);
+            this.nudConsumoH_servcio.TabIndex = 3;
+            this.nudConsumoH_servcio.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudConsumoH_servcio.ValueChanged += new System.EventHandler(this.nudConsumoH_servcio_ValueChanged);
+            // 
+            // nudConsumoH_medidor
+            // 
+            this.nudConsumoH_medidor.Location = new System.Drawing.Point(430, 581);
+            this.nudConsumoH_medidor.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudConsumoH_medidor.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudConsumoH_medidor.Name = "nudConsumoH_medidor";
+            this.nudConsumoH_medidor.Size = new System.Drawing.Size(120, 22);
+            this.nudConsumoH_medidor.TabIndex = 2;
+            this.nudConsumoH_medidor.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudConsumoH_medidor.ValueChanged += new System.EventHandler(this.nudConsumoH_medidor_ValueChanged);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(386, 34);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(204, 17);
+            this.label79.TabIndex = 1;
+            this.label79.Text = "Reporte historico de consumos";
+            // 
+            // consumoHistorico_EMPGTD
+            // 
+            this.consumoHistorico_EMPGTD.AllowUserToAddRows = false;
+            this.consumoHistorico_EMPGTD.AllowUserToDeleteRows = false;
+            this.consumoHistorico_EMPGTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.consumoHistorico_EMPGTD.Location = new System.Drawing.Point(-21, 81);
+            this.consumoHistorico_EMPGTD.Name = "consumoHistorico_EMPGTD";
+            this.consumoHistorico_EMPGTD.ReadOnly = true;
+            this.consumoHistorico_EMPGTD.RowHeadersWidth = 51;
+            this.consumoHistorico_EMPGTD.RowTemplate.Height = 24;
+            this.consumoHistorico_EMPGTD.Size = new System.Drawing.Size(966, 477);
+            this.consumoHistorico_EMPGTD.TabIndex = 0;
             // 
             // tabPage11
             // 
@@ -2386,7 +2440,7 @@ namespace AAVD.Forms
             // pictureBox3
             // 
             this.pictureBox3.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox3.Location = new System.Drawing.Point(259, 31);
+            this.pictureBox3.Location = new System.Drawing.Point(369, 117);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(265, 122);
@@ -2396,7 +2450,7 @@ namespace AAVD.Forms
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(349, 235);
+            this.button5.Location = new System.Drawing.Point(459, 321);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
@@ -2408,7 +2462,7 @@ namespace AAVD.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(329, 199);
+            this.label3.Location = new System.Drawing.Point(439, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 17);
             this.label3.TabIndex = 0;
@@ -2502,191 +2556,6 @@ namespace AAVD.Forms
             this.CONTRACT_TYPE.Name = "CONTRACT_TYPE";
             this.CONTRACT_TYPE.Width = 125;
             // 
-            // nud_Medidor
-            // 
-            this.nud_Medidor.Location = new System.Drawing.Point(153, 62);
-            this.nud_Medidor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_Medidor.Name = "nud_Medidor";
-            this.nud_Medidor.Size = new System.Drawing.Size(120, 22);
-            this.nud_Medidor.TabIndex = 18;
-            // 
-            // nud_Servicio
-            // 
-            this.nud_Servicio.Location = new System.Drawing.Point(153, 100);
-            this.nud_Servicio.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_Servicio.Name = "nud_Servicio";
-            this.nud_Servicio.Size = new System.Drawing.Size(120, 22);
-            this.nud_Servicio.TabIndex = 19;
-            // 
-            // nud_Cliente
-            // 
-            this.nud_Cliente.Location = new System.Drawing.Point(166, 41);
-            this.nud_Cliente.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_Cliente.Name = "nud_Cliente";
-            this.nud_Cliente.Size = new System.Drawing.Size(152, 22);
-            this.nud_Cliente.TabIndex = 18;
-            // 
-            // nud_ClienteNC
-            // 
-            this.nud_ClienteNC.Location = new System.Drawing.Point(181, 34);
-            this.nud_ClienteNC.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_ClienteNC.Name = "nud_ClienteNC";
-            this.nud_ClienteNC.Size = new System.Drawing.Size(149, 22);
-            this.nud_ClienteNC.TabIndex = 11;
-            // 
-            // nud_MedidorNC
-            // 
-            this.nud_MedidorNC.Location = new System.Drawing.Point(181, 113);
-            this.nud_MedidorNC.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_MedidorNC.Name = "nud_MedidorNC";
-            this.nud_MedidorNC.Size = new System.Drawing.Size(149, 22);
-            this.nud_MedidorNC.TabIndex = 12;
-            // 
-            // nud_ServicioNC
-            // 
-            this.nud_ServicioNC.Location = new System.Drawing.Point(181, 154);
-            this.nud_ServicioNC.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_ServicioNC.Name = "nud_ServicioNC";
-            this.nud_ServicioNC.Size = new System.Drawing.Size(149, 22);
-            this.nud_ServicioNC.TabIndex = 13;
-            // 
-            // consumoHistorico_EMPGTD
-            // 
-            this.consumoHistorico_EMPGTD.AllowUserToAddRows = false;
-            this.consumoHistorico_EMPGTD.AllowUserToDeleteRows = false;
-            this.consumoHistorico_EMPGTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.consumoHistorico_EMPGTD.Location = new System.Drawing.Point(-21, 81);
-            this.consumoHistorico_EMPGTD.Name = "consumoHistorico_EMPGTD";
-            this.consumoHistorico_EMPGTD.ReadOnly = true;
-            this.consumoHistorico_EMPGTD.RowHeadersWidth = 51;
-            this.consumoHistorico_EMPGTD.RowTemplate.Height = 24;
-            this.consumoHistorico_EMPGTD.Size = new System.Drawing.Size(966, 477);
-            this.consumoHistorico_EMPGTD.TabIndex = 0;
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(386, 34);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(204, 17);
-            this.label79.TabIndex = 1;
-            this.label79.Text = "Reporte historico de consumos";
-            // 
-            // nudConsumoH_medidor
-            // 
-            this.nudConsumoH_medidor.Location = new System.Drawing.Point(430, 581);
-            this.nudConsumoH_medidor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudConsumoH_medidor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudConsumoH_medidor.Name = "nudConsumoH_medidor";
-            this.nudConsumoH_medidor.Size = new System.Drawing.Size(120, 22);
-            this.nudConsumoH_medidor.TabIndex = 2;
-            this.nudConsumoH_medidor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudConsumoH_medidor.ValueChanged += new System.EventHandler(this.nudConsumoH_medidor_ValueChanged);
-            // 
-            // nudConsumoH_servcio
-            // 
-            this.nudConsumoH_servcio.Location = new System.Drawing.Point(659, 581);
-            this.nudConsumoH_servcio.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudConsumoH_servcio.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudConsumoH_servcio.Name = "nudConsumoH_servcio";
-            this.nudConsumoH_servcio.Size = new System.Drawing.Size(120, 22);
-            this.nudConsumoH_servcio.TabIndex = 3;
-            this.nudConsumoH_servcio.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudConsumoH_servcio.ValueChanged += new System.EventHandler(this.nudConsumoH_servcio_ValueChanged);
-            // 
-            // dtpConsumoH_year
-            // 
-            this.dtpConsumoH_year.Location = new System.Drawing.Point(216, 581);
-            this.dtpConsumoH_year.Name = "dtpConsumoH_year";
-            this.dtpConsumoH_year.Size = new System.Drawing.Size(108, 22);
-            this.dtpConsumoH_year.TabIndex = 4;
-            this.dtpConsumoH_year.ValueChanged += new System.EventHandler(this.dtpConsumoH_year_ValueChanged);
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(133, 581);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(33, 17);
-            this.label80.TabIndex = 5;
-            this.label80.Text = "Año";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(359, 581);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(59, 17);
-            this.label81.TabIndex = 6;
-            this.label81.Text = "Medidor";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(582, 581);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(58, 17);
-            this.label82.TabIndex = 7;
-            this.label82.Text = "Servicio";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(821, 580);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Generar reporte";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2705,18 +2574,20 @@ namespace AAVD.Forms
             this.tabPage2.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cliente)).EndInit();
             this.groupbox.ResumeLayout(false);
             this.groupbox.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Servicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Medidor)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -2734,14 +2605,15 @@ namespace AAVD.Forms
             this.tabPage5.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ClienteNC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_ServicioNC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_MedidorNC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Tarifas.ResumeLayout(false);
             this.Tarifas.PerformLayout();
@@ -2753,6 +2625,9 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ConsumosDTG_WN)).EndInit();
             this.tabPage13.ResumeLayout(false);
             this.tabPage13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_servcio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_medidor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consumoHistorico_EMPGTD)).EndInit();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.groupBox14.ResumeLayout(false);
@@ -2767,15 +2642,6 @@ namespace AAVD.Forms
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Medidor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Servicio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Cliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_ClienteNC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_MedidorNC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_ServicioNC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consumoHistorico_EMPGTD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_medidor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConsumoH_servcio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2849,22 +2715,10 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.TextBox id_servicio;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox edc_password;
         private System.Windows.Forms.TextBox edc_usuario;

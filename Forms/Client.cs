@@ -143,6 +143,13 @@ namespace AAVD.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if (medidores.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa un metodo de pago");
+                return;
+            }
+
             List<Clientes> clienteBuscar = new List<Clientes>();
             clienteBuscar = DatabaseManagement.getInstance().getClientWithUserId(currentUserClien);
             foreach (var contratos in clienteBuscar) {
@@ -555,7 +562,11 @@ namespace AAVD.Forms
         //Para generar el recibo en pdf
         private void generar_recibo_Click(object sender, EventArgs e)
         {
-
+            if (medidor_pdf.Text.Equals(""))
+            {
+                MessageBox.Show("Ese medidor no existe en la base de datos");
+                return;
+            }
 
 
             string id_usuario = "";
@@ -861,6 +872,11 @@ namespace AAVD.Forms
         //Recibo en pantalla
         private void button7_Click_1(object sender, EventArgs e)
         {
+            if (medidor_wn.Equals(""))
+            {
+                return;
+            }
+            
             string id_cliente = "";
             string tipo = "";
             string no_servicio = "";

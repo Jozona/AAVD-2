@@ -375,7 +375,7 @@ namespace AAVD.Forms
             this.Generar_pdf_consumo.Name = "Generar_pdf_consumo";
             this.Generar_pdf_consumo.Size = new System.Drawing.Size(137, 33);
             this.Generar_pdf_consumo.TabIndex = 1;
-            this.Generar_pdf_consumo.Text = "Generar PDF";
+            this.Generar_pdf_consumo.Text = "Generar CSV";
             this.Generar_pdf_consumo.UseVisualStyleBackColor = true;
             this.Generar_pdf_consumo.Click += new System.EventHandler(this.Generar_pdf_consumo_Click);
             // 
